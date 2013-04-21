@@ -1,0 +1,62 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext);
+
+@import "libs/less_prefixes.less";
+
+@background-color: #cccccc;
+@main-color: #006098;
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+// Bootstrap hacks
+.container-fluid {
+  padding: 0px;
+  height: 100%;
+}
+// End of Hacks
+
+a {
+  text-decoration: none;
+  border-bottom: 1px dashed #000080;
+}
+
+
+input {
+  .box-sizing(border-box);
+  background-color: white;
+  border: 1px solid #c0c0c0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+  color: rgba(0, 0, 0, 0.75);
+  display: block;
+  font-family: inherit;
+  font-size: 0.875em;
+  height: 2.3125em;
+  margin: 0 0 1em;
+  padding: 0.5em;
+  transition: all 0.15s linear 0s;
+  width: 100%;
+}
+
+button {
+  background-color: #c0c0c0;
+  border: 1px solid transparent;
+  color: #353535;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  height: 32px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  min-height: 32px;
+  min-width: 85px;
+  padding: 4px 12px;
+  text-align: center;
+  vertical-align: middle !important;
+  width: auto;
+}
