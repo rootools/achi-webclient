@@ -1,15 +1,20 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext);
+/*@import url(http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext);
+@import url(http://fonts.googleapis.com/css?family=Cuprum&subset=latin,cyrillic);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic-ext,cyrillic);*/
 
 @import "libs/less_prefixes.less";
 
 @background-color: #cccccc;
 @main-color: #006098;
 
+@main-font: 'Open Sans', sans-serif;
+
 html, body {
   margin: 0px;
   padding: 0px;
   height: 100%;
-  font-family: 'Roboto', sans-serif;
+  /*font-family: 'Roboto', sans-serif;*/
+  font-family: @main-font;
 }
 
 // Bootstrap hacks
@@ -54,9 +59,10 @@ button {
   margin-bottom: 10px;
   margin-right: 10px;
   min-height: 32px;
-  min-width: 85px;
+  min-width: 75px;
   padding: 4px 12px;
   text-align: center;
   vertical-align: middle !important;
   width: auto;
+  font-family: @main-font;
 }
