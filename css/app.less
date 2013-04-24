@@ -1,0 +1,59 @@
+@import "main.less";
+
+body {
+  background-color: @background-color;
+}
+
+#main_app {
+  height: 100%;
+}
+
+#menu {
+  width: 14.8936% + 2.12766%;
+}
+
+#content {
+  background-color: white;
+  height: 100%;
+  .box-shadow(0 0 2px);
+  margin-left: 0px;
+}
+
+#user_info {
+  padding: 15px 0 10px 10px;
+  height: 80px;
+  .box-shadow(inset 1px -1px 3px #a0a0a0);
+  background-color: #c1c1c1;
+  width: 100%;
+}
+
+#user_info_left {
+  height: 80px;
+  width: 64px;
+  margin-right: 10px;  
+}
+
+#user_info_points {
+  margin-top: 4px;
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#user_info_right {
+  font-size: 12px;
+}
+
+#user_info_left, #user_info_right {
+  float: left;
+}
+
+#user_info_edit_profile {
+  margin-top: 4px;
+  font-size: 8px;
+  color: #a0a0a0;
+}
+
+#user_info_name {
+  color: @main-color;
+}

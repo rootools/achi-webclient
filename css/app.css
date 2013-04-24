@@ -1,38 +1,26 @@
 /*@import url(http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext);
 @import url(http://fonts.googleapis.com/css?family=Cuprum&subset=latin,cyrillic);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic-ext,cyrillic);*/
-
-@import "libs/less_prefixes.less";
-
-@background-color: #cccccc;
-@main-color: #006098;
-
-@main-font: 'Open Sans', sans-serif;
-
-// Bootstrap hacks
 .container-fluid {
   padding: 0px;
   height: 100%;
 }
-// End of Hacks
-
-
-html, body {
+html,
+body {
   margin: 0px;
   padding: 0px;
   height: 100%;
   /*font-family: 'Roboto', sans-serif;*/
-  font-family: @main-font;
-}
 
+  font-family: 'Open Sans', sans-serif;
+}
 a {
   text-decoration: none;
   border-bottom: 1px dashed #000080;
 }
-
-
 input {
-  .box-sizing(border-box);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   background-color: white;
   border: 1px solid #c0c0c0;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
@@ -46,7 +34,6 @@ input {
   transition: all 0.15s linear 0s;
   width: 100%;
 }
-
 button {
   background-color: #c0c0c0;
   border: 1px solid transparent;
@@ -65,5 +52,57 @@ button {
   text-align: center;
   vertical-align: middle !important;
   width: auto;
-  font-family: @main-font;
+  font-family: 'Open Sans', sans-serif;
+}
+body {
+  background-color: #cccccc;
+}
+#main_app {
+  height: 100%;
+}
+#menu {
+  width: 17.021259999999998%;
+}
+#content {
+  background-color: white;
+  height: 100%;
+  -webkit-box-shadow: 0 0 2px;
+  -moz-box-shadow: 0 0 2px;
+  box-shadow: 0 0 2px;
+  margin-left: 0px;
+}
+#user_info {
+  padding: 15px 0 10px 10px;
+  height: 80px;
+  -webkit-box-shadow: inset 1px -1px 3px #a0a0a0;
+  -moz-box-shadow: inset 1px -1px 3px #a0a0a0;
+  box-shadow: inset 1px -1px 3px #a0a0a0;
+  background-color: #c1c1c1;
+  width: 100%;
+}
+#user_info_left {
+  height: 80px;
+  width: 64px;
+  margin-right: 10px;
+}
+#user_info_points {
+  margin-top: 4px;
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+#user_info_right {
+  font-size: 12px;
+}
+#user_info_left,
+#user_info_right {
+  float: left;
+}
+#user_info_edit_profile {
+  margin-top: 4px;
+  font-size: 8px;
+  color: #a0a0a0;
+}
+#user_info_name {
+  color: #006098;
 }
