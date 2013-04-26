@@ -4,11 +4,11 @@ body {
   background-color: @background-color;
 }
 
-#main_app {
+#app_main {
   height: 100%;
 }
 
-#menu {
+#app_left {
   width: 14.8936% + 2.12766%;
 }
 
@@ -19,10 +19,21 @@ body {
   margin-left: 0px;
 }
 
+#menu {
+  
+}
+
+.menu_elem {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  color: @main-color;
+  border-bottom: 1px solid @tip-color;
+}
+
 #user_info {
   padding: 15px 0 10px 10px;
   height: 80px;
-  .box-shadow(inset 1px -1px 3px #a0a0a0);
+  .box-shadow(inset 1px -1px 3px @tip-color);
   background-color: #c1c1c1;
   width: 100%;
 }
@@ -30,7 +41,7 @@ body {
 #user_info_left {
   height: 80px;
   width: 64px;
-  margin-right: 10px;  
+  margin-right: 10px;
 }
 
 #user_info_points {
@@ -51,7 +62,7 @@ body {
 #user_info_edit_profile {
   margin-top: 4px;
   font-size: 8px;
-  color: #a0a0a0;
+  color: @tip-color;
 }
 
 #user_info_name {

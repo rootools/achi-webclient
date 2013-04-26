@@ -4,11 +4,11 @@
   font-size: 10px;
   text-align: center;
   margin-bottom: 10px;
-  color: #a0a0a0;
+  color: @tip-color;
 
   a {
-    color: #a0a0a0;
-    border-bottom: 1px dashed #a0a0a0;
+    color: @tip-color;
+    border-bottom: 1px dashed @tip-color;
   }
 }
 
@@ -39,6 +39,23 @@
   padding-right: 40px;
   padding-left: 20px;
   color: @main-color;
+}
+
+.chooser {
+  text-align: center;
+  width: 50%;
+  float: left;
+  margin-bottom: 10px;
+}
+
+#login_chooser {
+  color: @main-color;
+  border-bottom: 3px solid @main-color;
+}
+
+#reg_chooser {
+  color: @tip-color;
+  border-bottom: 3px solid @tip-color;
 }
 
 #login_button_login {

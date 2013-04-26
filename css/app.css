@@ -57,10 +57,10 @@ button {
 body {
   background-color: #cccccc;
 }
-#main_app {
+#app_main {
   height: 100%;
 }
-#menu {
+#app_left {
   width: 17.021259999999998%;
 }
 #content {
@@ -71,12 +71,18 @@ body {
   box-shadow: 0 0 2px;
   margin-left: 0px;
 }
+.menu_elem {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  color: #006196;
+  border-bottom: 1px solid #999999;
+}
 #user_info {
   padding: 15px 0 10px 10px;
   height: 80px;
-  -webkit-box-shadow: inset 1px -1px 3px #a0a0a0;
-  -moz-box-shadow: inset 1px -1px 3px #a0a0a0;
-  box-shadow: inset 1px -1px 3px #a0a0a0;
+  -webkit-box-shadow: inset 1px -1px 3px #999999;
+  -moz-box-shadow: inset 1px -1px 3px #999999;
+  box-shadow: inset 1px -1px 3px #999999;
   background-color: #c1c1c1;
   width: 100%;
 }
@@ -101,8 +107,8 @@ body {
 #user_info_edit_profile {
   margin-top: 4px;
   font-size: 8px;
-  color: #a0a0a0;
+  color: #999999;
 }
 #user_info_name {
-  color: #006098;
+  color: #006196;
 }
