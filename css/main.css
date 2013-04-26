@@ -13,10 +13,19 @@ body {
   /*font-family: 'Roboto', sans-serif;*/
 
   font-family: 'Open Sans', sans-serif;
+  font-size: 14pt;
 }
 a {
   text-decoration: none;
-  border-bottom: 1px dashed #000080;
+  border-bottom: 1px dashed #006196;
+}
+a:hover {
+  color: #6699cc;
+  border-bottom: 0;
+}
+a:visited {
+  color: #96bbcc;
+  border-bottom: 1px dashed #96bbcc;
 }
 input {
   -webkit-box-sizing: border-box;
@@ -53,4 +62,13 @@ button {
   vertical-align: middle !important;
   width: auto;
   font-family: 'Open Sans', sans-serif;
+}
+h1 {
+  font-style: bold;
+  font-size: 24pt;
+  color: #006196;
+}
+h2 {
+  font-size: 24pt;
+  color: #006196;
 }
