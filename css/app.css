@@ -10,8 +10,6 @@ body {
   margin: 0px;
   padding: 0px;
   height: 100%;
-  /*font-family: 'Roboto', sans-serif;*/
-
   font-family: 'Open Sans', sans-serif;
   font-size: 14pt;
 }
@@ -135,6 +133,42 @@ body {
 }
 #content_title {
   height: 79px;
+  min-height: 79px;
   padding: 15px 0 10px 20px;
   border-bottom: 1px solid #999999;
+}
+#content_services {
+  padding: 2%;
+}
+.service_tile {
+  width: 31%;
+  /*border: 1px solid black;*/
+
+  margin-right: 2%;
+  margin-bottom: 2%;
+  float: left;
+}
+.service_tile_flag {
+  float: left;
+  margin-right: 10px;
+}
+.service_tile_flag .service_tile_canvas {
+  width: 100px;
+  height: 100px;
+  background: #c00;
+}
+.service_tile_flag .service_tile_flag_bottom {
+  content: "";
+  margin-top: -25px;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 25px solid white;
+}
+.service_tile_name,
+.service_tile_points,
+.service_tile_holder,
+.service_tile_earnings {
+  height: 25px;
 }
