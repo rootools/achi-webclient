@@ -26,13 +26,19 @@ body {
   
 }
 
-
 // Menu element
 .menu_elem {
   padding-top: 10px;
   padding-bottom: 10px;
   color: @main-color;
   border-bottom: 1px solid @tip-color;
+  img {
+    width: 32px;
+    height: 32px;
+    fill: red;
+    margin-right: 30px;
+    margin-left: 15px;
+  }
 }
 
 .menu_elem:hover {
@@ -41,11 +47,10 @@ body {
 
 // User Info zone
 #user_info {
-  padding: 15px 0 10px 10px;
+  padding: 15px 0 10px 0;
   height: 80px;
-  .box-shadow(inset 1px -1px 3px @tip-color);
-  background-color: #c1c1c1;
   width: 100%;
+  border-bottom: 1px solid @tip-color;
 
   #user_info_left {
     height: 80px;
@@ -82,8 +87,8 @@ body {
 // Right side
 
 #content_title {
-  height: 79px;
-  min-height: 79px;
+  height: 80px;
+  min-height: 80px;
   padding: 15px 0 10px 20px;
   border-bottom: 1px solid @tip-color;
 }
