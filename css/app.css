@@ -113,6 +113,26 @@ body {
 .menu_elem:hover {
   background-color: #dddddd;
 }
+#menu_footer {
+  width: 23.40423%;
+  text-align: center;
+  font-size: 10px;
+  margin-bottom: 10px;
+  color: #999999;
+}
+#menu_footer a {
+  color: #999999;
+  border-bottom: 1px dashed #999999;
+}
+.menu_footer_block {
+  margin-right: 10px;
+}
+#menu_logo {
+  width: 14%;
+  margin-right: 1.5%;
+  margin-left: 7.88297%;
+  margin-bottom: 20px;
+}
 #user_info {
   padding: 15px 0 10px 0;
   height: 80px;
