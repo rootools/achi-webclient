@@ -104,6 +104,12 @@ body {
   margin-right: 30px;
   margin-left: 15px;
 }
+#menu_exit {
+  color: #999;
+}
+#menu_exit #menu_exit_icon {
+  height: 13px;
+}
 .menu_elem:hover {
   background-color: #dddddd;
 }
