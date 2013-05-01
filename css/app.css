@@ -1,6 +1,6 @@
-/*@import url(http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext);
-@import url(http://fonts.googleapis.com/css?family=Cuprum&subset=latin,cyrillic);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic-ext,cyrillic);*/
+/*@import url(http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext);*/
+/*@import url(http://fonts.googleapis.com/css?family=Cuprum&subset=latin,cyrillic);*/
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic-ext,cyrillic);*/
 .container-fluid {
   padding: 0px;
   height: 100%;
@@ -95,6 +95,7 @@ body {
   padding-bottom: 10px;
   color: #006196;
   border-bottom: 1px solid #999999;
+  cursor: pointer;
 }
 .menu_elem img {
   width: 32px;
@@ -104,7 +105,7 @@ body {
   margin-left: 15px;
 }
 .menu_elem:hover {
-  background-color: #999999;
+  background-color: #dddddd;
 }
 #user_info {
   padding: 15px 0 10px 0;
@@ -122,6 +123,13 @@ body {
   font-size: 12px;
   text-align: center;
   font-weight: bold;
+  color: #ff9000;
+}
+#user_info #user_info_points #user_info_points_star {
+  height: 12px;
+  width: 12px;
+  margin-bottom: 4px;
+  margin-right: 2px;
 }
 #user_info #user_info_right {
   font-size: 80%;
@@ -192,10 +200,22 @@ body {
 .service_tile .service_tile_earnings {
   font-size: 11pt;
 }
+.service_tile .service_tile_points {
+  color: #ff9000;
+  font-weight: bold;
+}
+.service_tile .service_tile_points .service_tile_points_star {
+  width: 11pt;
+  height: 11pt;
+  margin-bottom: 4px;
+  margin-right: 2px;
+}
 .achievements_tile {
   border: 3px solid #c00;
   overflow: hidden;
   margin-bottom: 2%;
+  height: 100px;
+  max-width: 575px;
 }
 .achievements_tile .achievements_tile_flag {
   float: left;
@@ -224,6 +244,7 @@ body {
   font-size: 34px;
   text-align: center;
   font-weight: bold;
+  color: #ff9000;
 }
 .achievements_tile .achievements_tile_date,
 .achievements_tile .achievements_tile_sharing {

@@ -32,6 +32,7 @@ body {
   padding-bottom: 10px;
   color: @main-color;
   border-bottom: 1px solid @tip-color;
+  cursor: pointer;
   img {
     width: 32px;
     height: 32px;
@@ -42,7 +43,7 @@ body {
 }
 
 .menu_elem:hover {
-  background-color: @tip-color;
+  background-color: #dddddd;
 }
 
 // User Info zone
@@ -63,6 +64,13 @@ body {
     font-size: 12px;
     text-align: center;
     font-weight: bold;
+    color: @gold-color;
+    #user_info_points_star {
+      height: 12px;
+      width: 12px;
+      margin-bottom: 4px;
+      margin-right: 2px;
+    }
   }
 
   #user_info_right {
@@ -138,12 +146,25 @@ body {
   .service_tile_points, .service_tile_earnings {
     font-size: 11pt;
   }
+
+  .service_tile_points {
+    color: @gold-color;
+    font-weight: bold;
+    .service_tile_points_star {
+      width: 11pt;
+      height: 11pt;
+      margin-bottom: 4px;
+      margin-right: 2px;
+    }
+  }
 }
 
 .achievements_tile {
   border: 3px solid #c00;
   overflow: hidden;
   margin-bottom: 2%;
+  height: 100px;
+  max-width: 575px;
   .achievements_tile_flag {
     float: left;
     background-color: #c00;
@@ -171,6 +192,7 @@ body {
     font-size: 34px;
     text-align: center;
     font-weight: bold;
+    color: @gold-color;
   }
   .achievements_tile_date, .achievements_tile_sharing {
     height: 25px;
