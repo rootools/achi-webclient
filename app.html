@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/libs/bootstrap.css">
   <!--<link rel="stylesheet" href="css/main.css"> -->
   <link rel="stylesheet" href="css/app.css">
+
 </head>
 <body>
   <div class="container-fluid">
@@ -32,16 +33,19 @@
 
       <!-- Menu Place-->
       <div id="menu">
-        <div class="menu_elem">
+        <div class="menu_elem" id="menu_elem_dashboard">
+          <img src="img/dashboard.svg">Сводка
+        </div>
+        <div class="menu_elem" id="menu_elem_feed">
           <img src="img/feed.svg">Новости
         </div>
-        <div class="menu_elem">
+        <div class="menu_elem" id="menu_elem_top">
           <img src="img/top.svg">Топ
         </div>
-        <div class="menu_elem">
+        <div class="menu_elem" id="menu_elem_friendslist">
           <img src="img/friends.svg">Друзья
         </div>
-        <div class="menu_elem">
+        <div class="menu_elem" id="menu_elem_messages">
           <img src="img/messages.svg">Сообщения
         </div>
         <div class="menu_elem" id="menu_exit">
@@ -63,46 +67,9 @@
     </div>
     
     <div class="span8" id="content">
-      
-      <div id="content_title">
-        <h1>title</h1>
-      </div>
 
-      <div id="content_services">
-      
-        <div class="service_tile">
-          <div class="service_tile_flag">
-            <div class="service_tile_canvas"><img src="img/s/vk_white.svg" class="service_icon_service"></div>
-            <div class="service_tile_flag_bottom"></div>
-          </div>
-          <div class="service_tile_name">ВКонтакте</div>
-          <div class="service_tile_points"><img src="img/star.svg" class="service_tile_points_star">700</div>
-          <div class="service_tile_holder"></div>
-          <div class="service_tile_earnings">5/10</div>
-        </div>
-        
-      </div>
-
-      <div id="content_achievements">
-        <div class="achievements_tile">
-          <div class="achievements_tile_flag"><img src="img/s/vk_white.svg" class="service_icon_achievements"></div>
-          <div class="achievements_tile_flag_right"></div>
-          <div class="achievements_tile_name">Ачивка</div>
-          <div class="achievements_tile_right">
-            <div class="achievements_tile_sharing"></div>
-            <div class="achievements_tile_points">10</div>
-            <div class="achievements_tile_date">00.00.0000</div>
-          </div>
-        </div>
-      </div>
-
-      <div id="content_friendslist">
-        <div class="friendslist_tile">
-          <img src="img/me.jpg">
-          <div class="friendslist_points"><img src="img/white_star.svg" class="friendslist_points_star">7500</div>
-          <div class="friendslist_name">Bravin Anton</div>
-        </div>
-      </div>
+      <div ng-include src="'dashboard.html'" id="t_dashboard" style="display: none;"></div>
+      <div ng-include src="'friendslist.html'" id="t_friendslist" style="display: none;"></div>
 
   </div>
 
@@ -110,4 +77,18 @@
 </div>
 
 </body>
+<!-- Dev temp scripts -->
+<script>
+  var friends = document.getElementById('menu_elem_friendslist');
+  var dashboard = document.getElementById('menu_elem_dashboard');
+  
+  friends.onclick = function(e) {
+    document.getElementById('t_friendslist').style.display = 'block';
+    document.getElementById('t_dashboard').style.display = 'none';
+  }
+  dashboard.onclick = function(e) {
+    document.getElementById('t_dashboard').style.display = 'block';
+    document.getElementById('t_friendslist').style.display = 'none';
+  }
+</script>
 </html>
