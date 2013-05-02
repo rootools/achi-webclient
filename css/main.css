@@ -69,8 +69,10 @@ h1 {
   font-style: bold;
   font-size: 24pt;
   color: #006196;
+  display: inline-block;
 }
 h2 {
   font-size: 24pt;
   color: #006196;
+  display: inline-block;
 }
