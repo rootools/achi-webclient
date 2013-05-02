@@ -87,7 +87,7 @@ body {
 
   #user_info_left {
     height: 80px;
-    width: 64px;
+    width: 25%;
     margin-right: 10px;
   }
 
@@ -106,7 +106,7 @@ body {
   }
 
   #user_info_right {
-    font-size: 80%;
+    font-size: 0.875em;
   }
 
   #user_info_left, #user_info_right {
@@ -136,7 +136,7 @@ body {
   border-bottom: 1px solid @tip-color;
 }
 
-#content_services, #content_achievements, #content_friendslist {
+#content_services, #content_achievements, #content_friendslist, #content_edit_profile {
   overflow: hidden;
   padding: 2%;
   position: relative;
@@ -291,5 +291,52 @@ body {
       margin-bottom: 2px;
       margin-right: 2px;
     }
+  }
+}
+
+#edit_profile_change_params {
+  overflow: hidden;
+  width: 70%;
+  position: relative;
+  float: left;
+  #edit_profile_change_params_password, #edit_profile_change_params_password_again {
+    width: 48%;
+    float: left;
+  }
+  #edit_profile_change_params_password_again {
+    margin-left: 4%;
+  }
+  .edit_profile_change_params_subs {
+    font-size: 0.875em;
+  }
+
+  /*#edit_profile_change_params_userbar {
+    margin-top: 15px;
+    font-size: 0.8em;
+    color: @tip-color;
+    padding-bottom: 1px;
+  }*/
+  #edit_profile_change_params_save_button {
+    margin-top: 30px;
+    background-color: @main-color;
+    color: @background-color;
+  }
+}
+
+#edit_profile_avatar {
+  width: 180px;
+  height: 180px;
+  position: relative;
+  float: right;
+  #edit_profile_avatar_change_button {
+    font-size: 14px;
+    background-color: black;
+    color: white;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    padding: 5px;
+    opacity: 0.8;
   }
 }

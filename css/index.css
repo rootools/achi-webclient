@@ -1,6 +1,6 @@
-/*@import url(http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext);
-@import url(http://fonts.googleapis.com/css?family=Cuprum&subset=latin,cyrillic);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic-ext,cyrillic);*/
+/*@import url(http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext);*/
+/*@import url(http://fonts.googleapis.com/css?family=Cuprum&subset=latin,cyrillic);*/
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic-ext,cyrillic);*/
 .container-fluid {
   padding: 0px;
   height: 100%;
@@ -10,15 +10,22 @@ body {
   margin: 0px;
   padding: 0px;
   height: 100%;
-  /*font-family: 'Roboto', sans-serif;*/
-
   font-family: 'Open Sans', sans-serif;
+  font-size: 14pt;
 }
 a {
   text-decoration: none;
-  border-bottom: 1px dashed #000080;
+  border-bottom: 1px dashed #006196;
 }
-input {
+a:hover {
+  color: #6699cc;
+  border-bottom: 0;
+}
+a:visited {
+  color: #96bbcc;
+  border-bottom: 1px dashed #96bbcc;
+}
+input[type="text"] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   background-color: white;
@@ -53,6 +60,15 @@ button {
   vertical-align: middle !important;
   width: auto;
   font-family: 'Open Sans', sans-serif;
+}
+h1 {
+  font-style: bold;
+  font-size: 24pt;
+  color: #006196;
+}
+h2 {
+  font-size: 24pt;
+  color: #006196;
 }
 #footer_content {
   font-size: 10px;
