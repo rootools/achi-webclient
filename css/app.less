@@ -137,7 +137,7 @@ body {
   border-bottom: 1px solid @tip-color;
 }
 
-#content_services, #content_achievements, #content_friendslist, #content_edit_profile, #content_feed {
+#content_services, #content_achievements, #content_friendslist, #content_edit_profile, #content_feed, #content_top {
   overflow: hidden;
   padding: 2%;
   position: relative;
@@ -295,12 +295,12 @@ body {
   }
 }
 
-#friendslist_menu {
+#title_menu {
   position: relative;
   float: right;
   margin-top: 30px;
   margin-right: 15px;
-  .friendslist_menu_elem {
+  .title_menu_elem {
     cursor: pointer;
     color: @main-color;
     float: left;
@@ -308,7 +308,7 @@ body {
     font-size: 0.8em;
     padding: 6px;
   }
-  .friendslist_menu_elem.choosed {
+  .title_menu_elem.choosed {
     background-color: @main-color;
     color: white;
   }
@@ -361,7 +361,7 @@ body {
   }
 }
 
-.news_tile {
+.news_tile, .top_tile {
   width: 100%;
   padding-bottom: 1%;
   padding-top: 1%;
@@ -369,27 +369,52 @@ body {
   position: relative;
   overflow: hidden;
 
-  .news_tile_avatar {
+  .news_tile_avatar, .top_tile_avatar {
     position: relative;
     float: left;
-    width: 10%;
-    margin-right: 2%;
+    width: 100px;
+    margin-right: 1.5%;
   }
-  .news_tile_name {
-    width: 88%;
+  .news_tile_name, .top_tile_name {
     color: @main-color;
     font-size: 1.1em;
     position: relative;
-    float: left;
-    margin-bottom: 5px;
+    float: none;
+    margin-bottom: 10px;
   }
   .news_tile_article {
     font-size: 0.8em;
     margin-bottom: 5px;
+    position: relative;
   }
   .news_tile_time {
     float: right;
     color: @tip-color;
     font-size: 0.7em;
+  }
+  .top_tile_points {
+    position: relative;
+    background-color: @gold-color;
+    color: white;   
+    padding: 5px;
+    font-weight: bold;
+    float: left;
+    margin-top: 31px;
+    .top_tile_points_star {
+      width: 18px;
+      height: 18px;
+      margin-bottom: 4px;
+      margin-right: 2px;
+    }
+  }
+  .top_tile_position {
+    position: relative;
+    padding: 5px 12px 5px 12px;
+    background-color: @main-color;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 30px;
+    margin-top: 21px;
   }
 }
