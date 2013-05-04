@@ -137,7 +137,7 @@ body {
   border-bottom: 1px solid @tip-color;
 }
 
-#content_services, #content_achievements, #content_friendslist, #content_edit_profile, #content_feed, #content_top {
+#content_services, #content_achievements, #content_friendslist, #content_edit_profile, #content_feed, #content_top, #content_messages_list {
   overflow: hidden;
   padding: 2%;
   position: relative;
@@ -361,33 +361,32 @@ body {
   }
 }
 
-.news_tile, .top_tile {
+.news_tile, .top_tile, .messages_list_tile {
   width: 100%;
   padding-bottom: 1%;
   padding-top: 1%;
   border-bottom: 1px solid @tip-color;
   position: relative;
   overflow: hidden;
-
-  .news_tile_avatar, .top_tile_avatar {
+  .news_tile_avatar, .top_tile_avatar, .messages_list_tile_avatar {
     position: relative;
     float: left;
     width: 100px;
     margin-right: 1.5%;
   }
-  .news_tile_name, .top_tile_name {
+  .news_tile_name, .top_tile_name, .messages_list_tile_name {
     color: @main-color;
     font-size: 1.1em;
     position: relative;
     float: none;
     margin-bottom: 10px;
   }
-  .news_tile_article {
+  .news_tile_article, .messages_list_tile_message {
     font-size: 0.8em;
     margin-bottom: 5px;
     position: relative;
   }
-  .news_tile_time {
+  .news_tile_time, .messages_list_tile_time {
     float: right;
     color: @tip-color;
     font-size: 0.7em;
@@ -415,6 +414,6 @@ body {
     font-weight: bold;
     float: right;
     font-size: 30px;
-    margin-top: 21px;
+    margin-top: 19px;
   }
 }

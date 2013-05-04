@@ -6,5 +6,6 @@ angular.module('achi', []).
     when('/feed', {templateUrl: 'feed.html'/*, controller: FriendsListCtrl*/}).
     when('/top', {templateUrl: 'top.html'/*, controller: FriendsListCtrl*/}).
     when('/friends', {templateUrl: 'friendslist.html'/*, controller: FriendsListCtrl*/}).
+    when('/messages', {templateUrl: 'messages.html'/*, controller: FriendsListCtrl*/}).
     otherwise({redirectTo: '/'});
 }]);
