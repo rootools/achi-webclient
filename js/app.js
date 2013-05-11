@@ -1,11 +1,11 @@
 angular.module('achi', []).
-  config(['$routeProvider', function($routeProvider) {
+  config(['$routeProvider', function($routeProvider, $cookies) {
   $routeProvider.
-    when('/profile', {templateUrl: 'profile.html'/*, controller: FriendsListCtrl*/}).
-    when('/dashboard', {templateUrl: 'dashboard.html'/*, controller: FriendsListCtrl*/}).
-    when('/feed', {templateUrl: 'feed.html'/*, controller: FriendsListCtrl*/}).
-    when('/top', {templateUrl: 'top.html'/*, controller: FriendsListCtrl*/}).
-    when('/friends', {templateUrl: 'friendslist.html'/*, controller: FriendsListCtrl*/}).
-    when('/messages', {templateUrl: 'messages.html'/*, controller: FriendsListCtrl*/}).
+    when('/profile', {templateUrl: 'profile.html'}).
+    when('/dashboard', {templateUrl: 'dashboard.html'}).
+    when('/feed', {templateUrl: 'feed.html'}).
+    when('/top', {templateUrl: 'top.html'}).
+    when('/friends', {templateUrl: 'friendslist.html'}).
+    when('/messages', {templateUrl: 'messages.html'}).
     otherwise({redirectTo: '/'});
 }]);

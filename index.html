@@ -6,10 +6,11 @@
   <script src="js/libs/angular.js"></script>
   <script src="js/app.js"></script>
   <script src="js/controllers.js"></script>
+  <script src="js/tools.js"></script>
   <link rel="stylesheet" href="css/libs/bootstrap.css">
   <link rel="stylesheet" href="css/app.css">
 </head>
-<body>
+<body ng-controller="CookieCtrl">
   <div class="container-fluid">
   <div class="row-fluid" id="app_main">
     
@@ -28,6 +29,7 @@
           <div id="user_info_right">
             <div id="user_info_name">Super Meat Boy</div>
             <div id="user_info_edit_profile">Редактировать профиль</div>
+            <div style="color: black;">{{authz}}</div>
           </div>
         </div>
       </a>
@@ -60,9 +62,11 @@
             <img src="img/messages.svg">Сообщения
           </div>
         </a>
-        <div class="menu_elem">
-          <img src="img/logout.svg">Выйти
-        </div>
+        <a href="#/logout">
+          <div class="menu_elem">
+            <img src="img/logout.svg">Выйти
+          </div>
+        </a>
       </div>
       <!-- End Menu Place-->
       <div class="navbar navbar-fixed-bottom">

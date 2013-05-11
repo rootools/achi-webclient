@@ -41,6 +41,10 @@ input[type="text"] {
   transition: all 0.15s linear 0s;
   width: 100%;
 }
+input[type="checkbox"] {
+  margin-left: 2px;
+  margin-right: 6px;
+}
 button {
   background-color: #c0c0c0;
   border: 1px solid transparent;
@@ -65,10 +69,12 @@ h1 {
   font-style: bold;
   font-size: 24pt;
   color: #006196;
+  display: inline-block;
 }
 h2 {
   font-size: 24pt;
   color: #006196;
+  display: inline-block;
 }
 #footer_content {
   font-size: 10px;
@@ -110,6 +116,8 @@ h2 {
   width: 50%;
   float: left;
   margin-bottom: 10px;
+  font-size: 14px;
+  cursor: pointer;
 }
 #login_chooser {
   color: #006196;

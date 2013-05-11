@@ -270,6 +270,9 @@ body {
 }
 .achievements_tile {
   border: 3px solid #c00;
+  -webkit-box-shadow: 0 0 1px;
+  -moz-box-shadow: 0 0 1px;
+  box-shadow: 0 0 1px;
   overflow: hidden;
   margin-bottom: 2%;
   height: 100px;
@@ -309,6 +312,11 @@ body {
   height: 25px;
   text-align: center;
   font-size: 11pt;
+}
+.achievements_tile:hover {
+  -webkit-box-shadow: 0 0 0;
+  -moz-box-shadow: 0 0 0;
+  box-shadow: 0 0 0;
 }
 .friendslist_tile {
   float: left;
