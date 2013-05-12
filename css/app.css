@@ -211,6 +211,12 @@ body {
   margin-top: 15px;
   margin-left: 25px;
 }
+.service_icon_service_sub {
+  height: 32px;
+  width: 32px;
+  margin-top: 10px;
+  margin-left: 25px;
+}
 .service_icon_achievements {
   margin-top: 25px;
   margin-left: 20px;
@@ -260,6 +266,60 @@ body {
   font-weight: bold;
 }
 .service_tile .service_tile_points .service_tile_points_star {
+  width: 11pt;
+  height: 11pt;
+  margin-bottom: 4px;
+  margin-right: 2px;
+}
+.service_tile_sub {
+  cursor: pointer;
+  margin-right: 2%;
+  margin-bottom: 2%;
+}
+.service_tile_sub .service_tile_flag_sub {
+  float: left;
+  margin-right: 10px;
+}
+.service_tile_sub .service_tile_flag_sub .service_tile_canvas_sub {
+  width: 80px;
+  height: 80px;
+  background: #c00;
+}
+.service_tile_sub .service_tile_flag_sub .service_tile_flag_bottom_sub {
+  content: "";
+  margin-top: -20px;
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 20px solid white;
+}
+.service_tile_sub .service_tile_name_sub {
+  font-size: 30px;
+  height: 40px;
+}
+.service_tile_sub .service_tile_points_sub,
+.service_tile_sub .service_tile_holder_sub,
+.service_tile_sub .service_tile_earnings_sub {
+  height: 20px;
+}
+.service_tile_sub .service_tile_name_sub,
+.service_tile_sub .service_tile_earnings_sub {
+  color: #006196;
+}
+.service_tile_sub .service_tile_points_sub,
+.service_tile_sub .service_tile_earnings_sub {
+  font-size: 11pt;
+  float: left;
+  margin-right: 10px;
+}
+.service_tile_sub .service_tile_points_sub {
+  background-color: #ff9000;
+  color: white;
+  font-weight: bold;
+  padding: 0 7px 0 7px;
+}
+.service_tile_sub .service_tile_points_sub .service_tile_points_star_sub {
   width: 11pt;
   height: 11pt;
   margin-bottom: 4px;
