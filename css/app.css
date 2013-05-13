@@ -122,19 +122,19 @@ body {
 .menu_elem:hover {
   background-color: #dddddd;
 }
-#menu_footer {
-  width: 23.40423%;
-  text-align: center;
+.menu_footer {
+  margin-left: 6.38297%;
+  width: 17.021259999999998%;
   font-size: 10px;
   margin-bottom: 10px;
   color: #999999;
 }
-#menu_footer a {
+.menu_footer a {
   color: #999999;
   border-bottom: 1px dashed #999999;
 }
 .menu_footer_block {
-  margin-right: 10px;
+  margin-right: 8px;
 }
 #menu_logo {
   width: 14%;
