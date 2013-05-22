@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html>
 <head>
   <meta charset="utf-8">
   <title>Achivster</title>
@@ -21,11 +21,15 @@
       <div class="span1"></div>
       <div class="span3" id="login_block_left">
         <div id="login_chooser" class="chooser">Войти</div>
-        <div id="reg_chooser" class="chooser">Регистрация</div>
-        <input type="text" placeholder="E-mail">
-        <input type="text" placeholder="Пароль">
-        <button id="login_button_login">Войти</button><button id="login_button_reg">Зарегистрироваться</button>
-        <span id="login_recover_link"><a href="/">Забыли пароль?</a></span>
+        <div id="reg_chooser" class="chooser chooser_selected">Регистрация</div>
+        
+        <form id="login_or_reg_form">
+          <input type="text" placeholder="E-mail">
+          <input type="password" placeholder="Пароль">
+          <input type="password" placeholder="Еще раз пароль">
+          <button id="login_button_reg">Зарегистрироваться</button>
+        </form>
+
       </div>
       
       <div class="span8" id="login_block_right">
@@ -43,5 +47,6 @@
       <span class="footer_content_block"><a href="/">Политика</a></span>
     </div>
   </div>
+<script src="js/login_w.js"></script>
 </body>
 </html>

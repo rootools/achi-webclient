@@ -12,6 +12,10 @@
   }
 }
 
+input {
+  display: inline !important;
+}
+
 .footer_content_block {
   margin-right: 10px;
 }
@@ -50,23 +54,26 @@
   cursor: pointer;
 }
 
-#login_chooser {
-  color: @main-color;
-  border-bottom: 3px solid @main-color;
-}
-
-#reg_chooser {
+#login_chooser, #reg_chooser {
   color: @tip-color;
   border-bottom: 3px solid @tip-color;
 }
 
+#login_chooser:hover, #reg_chooser:hover {
+  text-shadow: 0px 0px 1px;
+}
+
+.chooser_selected {
+  color: @main-color !important;
+  border-bottom: 3px solid @main-color !important;
+}
+
 #login_button_login {
-  color: @main-color;
+  background-color: @main-color;
+  color: @background-color;
 }
 
 #login_button_reg {
-  float: right;
-  margin-right: 0px;
   background-color: @main-color;
   color: @background-color;
 }

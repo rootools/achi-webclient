@@ -25,7 +25,8 @@ a:visited {
   color: #96bbcc;
   border-bottom: 1px dashed #96bbcc;
 }
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   background-color: white;
@@ -86,6 +87,9 @@ h2 {
   color: #999999;
   border-bottom: 1px dashed #999999;
 }
+input {
+  display: inline !important;
+}
 .footer_content_block {
   margin-right: 10px;
 }
@@ -119,20 +123,24 @@ h2 {
   font-size: 14px;
   cursor: pointer;
 }
-#login_chooser {
-  color: #006196;
-  border-bottom: 3px solid #006196;
-}
+#login_chooser,
 #reg_chooser {
   color: #999999;
   border-bottom: 3px solid #999999;
 }
+#login_chooser:hover,
+#reg_chooser:hover {
+  text-shadow: 0px 0px 1px;
+}
+.chooser_selected {
+  color: #006196 !important;
+  border-bottom: 3px solid #006196 !important;
+}
 #login_button_login {
-  color: #006196;
+  background-color: #006196;
+  color: #cccccc;
 }
 #login_button_reg {
-  float: right;
-  margin-right: 0px;
   background-color: #006196;
   color: #cccccc;
 }
