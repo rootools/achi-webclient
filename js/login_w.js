@@ -8,6 +8,7 @@ login_chooser.onclick = function(e) {
   var html = '<input type="text" placeholder="E-mail" name="email" required>' +
              '<input type="password" placeholder="Пароль" name="pass" required>' +
              '<input type="submit" id="login_button_login" value="Войти">' +
+             '<input type="hidden" name="action" value="login">' +
              '<span id="login_recover_link"><a href="/">Забыли пароль?</a></span>';
 
   form.innerHTML = html;
@@ -20,6 +21,7 @@ reg_chooser.onclick = function(e) {
   var html = '<input type="text" placeholder="E-mail" name="email" required>' +
              '<input type="password" placeholder="Пароль" name="pass" required id="regPass">' +
              '<input type="password" placeholder="Еще раз пароль" oninput="check_pass(this)" required>' +
+             '<input type="hidden" name="action" value="reg">' +
              '<input type="submit" id="login_button_reg" value="Зарегистрироваться">';
 
   form.innerHTML = html;
