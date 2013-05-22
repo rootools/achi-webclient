@@ -25,7 +25,8 @@ a:visited {
   color: #96bbcc;
   border-bottom: 1px dashed #96bbcc;
 }
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   background-color: white;
@@ -45,7 +46,8 @@ input[type="checkbox"] {
   margin-left: 2px;
   margin-right: 6px;
 }
-button {
+button,
+input[type="submit"] {
   background-color: #c0c0c0;
   border: 1px solid transparent;
   color: #353535;
