@@ -1,5 +1,5 @@
 angular.module('achi', []).
-  config(['$routeProvider', function($routeProvider, $cookies) {
+  config(['$routeProvider', function($routeProvider) {
   $routeProvider.
     when('/profile', {templateUrl: 'profile.html'}).
     when('/dashboard', {templateUrl: 'dashboard.html'}).

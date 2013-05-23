@@ -81,7 +81,7 @@ h2 {
 body {
   /*background-color: @background-color;*/
 
-  background-image: url('../img/bg.png');
+  background-image: url('../../images/bg.png');
 }
 #app_main {
   height: 100%;
