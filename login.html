@@ -31,7 +31,7 @@
 
         <% switch @error_type : %>
           <% when 'register' : %>
-            <form id="login_or_reg_form" action="/" method="POST">
+            <form id="login_or_reg_form" action="/login" method="POST">
               <input type="text" placeholder="E-mail" name="email" required>
               <input type="password" placeholder="Пароль" name="pass" required>
               <input type="password" placeholder="Еще раз пароль" oninput="check_pass(this)" required>
@@ -39,7 +39,7 @@
               <input type="submit" id="login_button_reg" value="Зарегистрироваться">
             </form>
           <% end %><% when 'login' : %>
-            <form id="login_or_reg_form" action="/" method="POST">
+            <form id="login_or_reg_form" action="/login" method="POST">
               <input type="text" placeholder="E-mail" name="email" required>
               <input type="password" placeholder="Пароль" name="pass" required>
               <input type="submit" id="login_button_login" value="Войти">
@@ -47,7 +47,7 @@
               <span id="login_recover_link"><a href="/">Забыли пароль?</a></span>
             </form>
           <% end %><% else : %>
-            <form id="login_or_reg_form" action="/" method="POST">
+            <form id="login_or_reg_form" action="/login" method="POST">
               <input type="text" placeholder="E-mail" name="email" required>
               <input type="password" placeholder="Пароль" name="pass" required>
               <input type="password" placeholder="Еще раз пароль" oninput="check_pass(this)" required>
