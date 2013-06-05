@@ -4,7 +4,7 @@ Achivster.config(function ($routeProvider) {
   $routeProvider
     .when('/profile', {templateUrl: 'page/profile.html', controller: 'ProfileController'})
     .when('/dashboard', {templateUrl: 'page/dashboard.html', controller : 'DashboardController'})
-    .when('/dashboard/:service/', {templateUrl: 'page/dashboard_service.html'})
+    .when('/dashboard/:service/', {templateUrl: 'page/dashboard_service.html', controller : 'DashboardServiceController'})
     .when('/feed', {templateUrl: 'page/feed.html', controller : 'FeedController'})
     .when('/top', {templateUrl: 'page/top.html', controller : 'TopController'})
     .when('/top/:filter', {templateUrl: 'page/top.html', controller : 'TopController'})
@@ -30,14 +30,19 @@ function DashboardController ($scope, $rootScope, $routeParams, $http) {
   });
 
   $http.post('/dashboard/service_list').success(function(services){
-    console.log(services);
     $scope.services = services;
+  });
+};
+
+function DashboardServiceController ($scope, $rootScope, $routeParams, $http) {
+  $http.post('/dashboard/'+$routeParams.service).success(function(data){
+    $scope.achievements = data.achievements;
+    $scope.info = data.info;
   });
 };
 
 function FeedController ($scope, $rootScope, $routeParams, $http) {
   $http.post('/feed').success(function(topics){
-    console.log(topics);
     $scope.topics = topics;
   });
 };
