@@ -1,16 +1,30 @@
 <div id="content_title">
   <h1>Друзья</h1>
   <div id="title_menu">
-    <div class="title_menu_elem choosed">Мои друзья</div>
-    <div class="title_menu_elem">Поиск</div>
-    <div class="title_menu_elem">Пригласить</div>
+    
+    <a href="#/friends/list">
+      <div class="title_menu_elem {{second_menu_chooser_list}}">Мои друзья</div>
+    </a>
+    
+    <a href="#/friends/find">
+      <div class="title_menu_elem {{second_menu_chooser_find}}">Поиск</div>
+    </a>
+    
+    <a href="#/friends/invite">
+      <div class="title_menu_elem {{second_menu_chooser_invite}}">Пригласить</div>
+    </a>
+  
   </div>
 </div>
 
+
+
 <div id="content_friendslist">
-  <div class="friendslist_tile">
-    <img src="images/me.jpg">
-    <div class="friendslist_points"><img src="images/white_star.svg" class="friendslist_points_star">7500</div>
-    <div class="friendslist_name">Bravin Anton</div>
+  
+  <div class="friendslist_tile" ng-repeat="friend in friends">
+    <img src="http://achivster.com{{friend.photo}}">
+    <div class="friendslist_points"><img src="images/white_star.svg" class="friendslist_points_star">{{friend.points}}</div>
+    <div class="friendslist_name">{{friend.name}}</div>
   </div>
+  
 </div>

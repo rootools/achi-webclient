@@ -1,56 +1,32 @@
 <div id="content_title">
   <h1>Рейтинги</h1>
   <div id="title_menu">
-    <div class="title_menu_elem choosed">Срейди друзей</div>
-    <div class="title_menu_elem">Общий</div>
+    
+    <a href="#/top/friends">
+      <div class="title_menu_elem {{second_menu_chooser_friends}}">Срейди друзей</div>
+    </a>
+    
+    <a href="#/top/world">
+      <div class="title_menu_elem {{second_menu_chooser_world}}">Общий</div>
+    </a>
+
   </div>
 </div>
 
 <div id="content_top">
   
-  <div class="top_tile">
+  <div class="top_tile" ng-repeat="top_user in top_users">
     <div class="top_tile_avatar">
-      <img src="images/me.jpg">
+      <img src="http://achivster.com{{top_user.photo}}">
     </div>
     <div class="top_tile_name">
-      Meat Boy
+      {{top_user.name}}
     </div>
     <span class="top_tile_points">
-      <img src="images/white_star.svg" class="top_tile_points_star">7500
+      <img src="images/white_star.svg" class="top_tile_points_star">{{top_user.points}}
     </span>
     <div class="top_tile_position">
-      <span class="top_tile_position_text">3</span>
-    </div>
-  </div>
-
-
-  <div class="top_tile">
-    <div class="top_tile_avatar">
-      <img src="images/me.jpg">
-    </div>
-    <div class="top_tile_name">
-      Meat Boy
-    </div>
-    <span class="top_tile_points">
-      <img src="images/white_star.svg" class="top_tile_points_star">7500
-    </span>
-    <div class="top_tile_position">
-      <span class="top_tile_position_text">3</span>
-    </div>
-  </div>
-
-  <div class="top_tile">
-    <div class="top_tile_avatar">
-      <img src="images/me.jpg">
-    </div>
-    <div class="top_tile_name">
-      Meat Boy
-    </div>
-    <div class="top_tile_points">
-      <img src="images/white_star.svg" class="top_tile_points_star">7500
-    </div>
-    <div class="top_tile_position">
-      <span class="top_tile_position_text">3</span>
+      <span class="top_tile_position_text">{{$index + 1}}</span>
     </div>
   </div>
 </div>

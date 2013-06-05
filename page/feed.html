@@ -4,30 +4,23 @@
 
 <div id="content_feed">
   
-  <div class="news_tile">
+  <div class="news_tile" ng-repeat="topic in topics">
     <div class="news_tile_avatar">
-      <img src="images/me.jpg">
+      <img src="http://achivster.com{{topic.photo}}">
     </div>
     
     <div class="news_tile_name">
-      Bill Gates
+      {{topic.name}}
     </div>
 
     <div class="news_tile_article">
-      Южное полушарие потенциально.
+      Заработал(а) достижение <b>{{topic.aname}}</b> за {{topic.points}} очков.
     </div>
 
     <div class="news_tile_time">
-      00.00.0000
+      {{topic.time}}
     </div>
 
-  </div>
-
-  <div class="news_tile">
-    <div class="news_tile_avatar">
-      <img src="images/me.jpg">
-    </div>
-    
   </div>
 
 </div>

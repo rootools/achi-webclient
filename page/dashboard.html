@@ -4,30 +4,32 @@
 
 <div id="content_services">
       
-  <a href="#/dashboard/vkontakte">
-  <div class="service_tile">
+  <!--<a href="#/dashboard/vkontakte">-->
+  <div class="service_tile" ng-repeat="service in services">
     <div class="service_tile_flag">
-      <div class="service_tile_canvas"><img src="images/s/vk_white.svg" class="service_icon_service"></div>
+      <div class="service_tile_canvas"><img src="http://achivster.com{{service.icon}}" class="service_icon_service"></div>
       <div class="service_tile_flag_bottom"></div>
     </div>
-    <div class="service_tile_name">ВКонтакте</div>
-    <div class="service_tile_points"><img src="images/star.svg" class="service_tile_points_star">700</div>
+    <div class="service_tile_name">{{service.service}}</div>
+    <div class="service_tile_points"><img src="images/star.svg" class="service_tile_points_star">{{service.earnedPoints}}</div>
     <div class="service_tile_holder"></div>
-    <div class="service_tile_earnings">5/10</div>
+    <div class="service_tile_earnings">{{service.earned}}/{{service.full}}</div>
   </div>
-  </a>
+  <!--</a> -->
         
 </div>
 
 <div id="content_achievements">
-  <div class="achievements_tile">
-    <div class="achievements_tile_flag"><img src="images/s/vk_white.svg" class="service_icon_achievements"></div>
+  
+  <div class="achievements_tile" ng-repeat="achiv in latest">
+    <div class="achievements_tile_flag"><img src="http://achivster.com{{achiv.icon}}" class="service_icon_achievements"></div>
     <div class="achievements_tile_flag_right"></div>
-    <div class="achievements_tile_name">Ачивка</div>
+    <div class="achievements_tile_name">{{achiv.name}}</div>
     <div class="achievements_tile_right">
       <div class="achievements_tile_sharing"></div>
-      <div class="achievements_tile_points">10</div>
-      <div class="achievements_tile_date">00.00.0000</div>
+      <div class="achievements_tile_points">{{achiv.points}}</div>
+      <div class="achievements_tile_date">{{achiv.time}}</div>
     </div>
   </div>
+
 </div>

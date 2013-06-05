@@ -35,31 +35,32 @@
     <!-- Menu Place-->
     <div id="menu">
         
-        <a href="#/page/dashboard">
-            <ng-class="{active: slug == 'dashboard'}"><div class="menu_elem"> <img src="images/dashboard.svg">Сводка </div>
+        <a href="#/dashboard">
+          <!--<ng-class="{active: slug == 'dashboard'}"> -->
+          <div class="menu_elem"><img src="images/dashboard.svg">Сводка</div>
         </a>
         
-        <a href="#/page/feed">
-            <div class="menu_elem"><img src="images/feed.svg">Новости</div>
+        <a href="#/feed">
+          <div class="menu_elem"><img src="images/feed.svg">Новости</div>
         </a>
         
-        <a href="#/page/top">
-            <div class="menu_elem"><img src="images/top.svg">Рейтинги</div>
+        <a href="#/top/friends">
+          <div class="menu_elem"><img src="images/top.svg">Рейтинги</div>
         </a>
         
-        <a href="#/page/friends"> 
-            <div class="menu_elem"><img src="images/friends.svg">Друзья</div>
+        <a href="#/friends"> 
+          <div class="menu_elem"><img src="images/friends.svg">Друзья</div>
         </a>
         
-        <a href="#/page/messages">
+        <a href="#/messages">
           <div class="menu_elem"><img src="images/messages.svg">Сообщения</div>
         </a>
 
-        <a href="#/page/logout">
+        <a href="#/logout">
           <div class="menu_elem"><img src="images/logout.svg">Выйти</div>
         </a>
 
-        <a href="#/page/login">
+        <a href="#/login">
           <div class="menu_elem"><img src="images/logout.svg">Войти</div>
         </a>
 
@@ -90,8 +91,7 @@
   </div>    
   
   <!-- Include javascript -->
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.0.2/angular.min.js"></script>
-  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
 
 </body>
