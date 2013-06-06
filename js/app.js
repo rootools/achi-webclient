@@ -14,7 +14,7 @@ Achivster.config(function ($routeProvider) {
     .when('/messages', {templateUrl: 'page/messages.html', controller : 'MessagesController'})
     .when('/login')
     .when('/logout')
-    .otherwise({redirectTo: '/index.html'});
+    .otherwise({redirectTo: '/dashboard'});
 });
 
 function AppController ($scope, $rootScope, $http) {
