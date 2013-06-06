@@ -5,17 +5,23 @@
 <div id="content_edit_profile">
   
   <div id="edit_profile_change_params">
-    <input type="text" placeholder="Имя">
-    <input type="text" id="edit_profile_change_params_password" placeholder="Новый пароль">
-    <input type="text" id="edit_profile_change_params_password_again" placeholder="Повторите новый пароль">
+    <input type="text" placeholder="Имя" ng-model="profile.name">
+    <input type="text" id="edit_profile_change_params_password" placeholder="Новый пароль" ng-model="profile_pass" ng-change="checkPassword();">
+    <input type="text" id="edit_profile_change_params_password_again" placeholder="Повторите новый пароль" ng-model="profile_pass_new" ng-change="checkPassword();">
     <div class="edit_profile_change_params_subs">
-      <input type="checkbox">Я хочу получать новости по почте
+      <input type="checkbox" ng-model="profile.subscribes.news">Я хочу получать новости по почте
     </div>
+    
     <div class="edit_profile_change_params_subs">
-      <input type="checkbox">Я хочу получать еженедельную рассылку
+      <input type="checkbox" ng-model="profile.subscribes.week">Я хочу получать еженедельную рассылку
     </div>
 
-    <button id="edit_profile_change_params_save_button">Сохранить</button>
+    <div id="edit_profile_change_params_message">
+      <div id="edit_profile_change_params_error_message">{{form_error_message}}</div>
+      <div id="edit_profile_change_params_success_message">{{form_success_message}}</div>
+    </div>
+
+    <button id="edit_profile_change_params_save_button" ng-click="saveProfile();" ng-disabled="submitButtonDisabler();">Сохранить</button>
 
     <!--<div id="edit_profile_change_params_userbar">
       <img src="images/ub.png">
@@ -24,7 +30,7 @@
   </div>
 
   <div id="edit_profile_avatar">
-    <img src="images/me.jpg">
+    <img src="http://achivster.com{{profile.photo}}">
     <div id="edit_profile_avatar_change_button">Изменить аватар</div>
   </div>
 

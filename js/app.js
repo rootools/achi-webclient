@@ -1,7 +1,7 @@
 var Achivster = angular.module('achi', []);
 var api_url_prefix = '/webapi';
 
-Achivster.config(function ($routeProvider) {
+Achivster.config(function ($routeProvider, $httpProvider) {
   $routeProvider
     .when('/profile', {templateUrl: 'page/profile.html', controller: 'ProfileController'})
     .when('/dashboard', {templateUrl: 'page/dashboard.html', controller : 'DashboardController'})
@@ -21,8 +21,48 @@ function AppController ($scope, $rootScope, $http) {
 
 };
 
-function ProfileController ($scope, $rootScope, $routeParams) {
+function ProfileController ($scope, $rootScope, $routeParams, $http, $timeout) {
+  $scope.form_error_message = '';
 
+  $http.post(api_url_prefix + '/profile').success(function(profile){
+    $scope.profile = profile;
+  });
+
+  $scope.saveProfile = function() {
+    var request = {};
+
+    if($scope.profile_pass && $scope.profile_pass_new && $scope.profile_pass.length > 0 && $scope.profile_pass_new > 0) {
+      request.password = $scope.profile_pass;
+      request.password_confirm = $scope.profile_pass_new;
+    }
+    
+    request.profile = $scope.profile;
+
+    $http.post(api_url_prefix + '/profile/save', request).success(function(){
+      $scope.form_success_message = 'Изменения сохранены';
+      $timeout(function(){
+        $scope.form_success_message = '';
+      }, 3000);
+    });
+
+  }
+
+  $scope.checkPassword = function() {
+    if($scope.profile_pass !== $scope.profile_pass_new) {
+      $scope.form_error_message = 'Введенные пароли не совпадают';
+    } else {
+      $scope.form_error_message = '';
+    }
+  }
+
+  $scope.submitButtonDisabler = function() {
+    if($scope.form_error_message.length > 0) {
+      return true;  
+    } else {
+      return false;
+    }
+    
+  }
 };
 
 function DashboardController ($scope, $rootScope, $routeParams, $http) {

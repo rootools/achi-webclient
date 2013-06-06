@@ -491,6 +491,17 @@ body {
   background-color: #006196;
   color: #cccccc;
 }
+#edit_profile_change_params #edit_profile_change_params_message {
+  margin-top: 15px;
+  font-size: 0.8em;
+  height: 1em;
+}
+#edit_profile_change_params #edit_profile_change_params_message #edit_profile_change_params_error_message {
+  color: red;
+}
+#edit_profile_change_params #edit_profile_change_params_message #edit_profile_change_params_success_message {
+  color: green;
+}
 #edit_profile_avatar {
   width: 180px;
   height: 180px;
