@@ -1,4 +1,5 @@
 var Achivster = angular.module('achi', []);
+var api_url_prefix = '/webapi';
 
 Achivster.config(function ($routeProvider) {
   $routeProvider
@@ -25,24 +26,24 @@ function ProfileController ($scope, $rootScope, $routeParams) {
 };
 
 function DashboardController ($scope, $rootScope, $routeParams, $http) {
-  $http.post('/dashboard/latest').success(function(latest){
+  $http.post(api_url_prefix + '/dashboard/latest').success(function(latest){
     $scope.latest = latest;
   });
 
-  $http.post('/dashboard/service_list').success(function(services){
+  $http.post(api_url_prefix + '/dashboard/service_list').success(function(services){
     $scope.services = services;
   });
 };
 
 function DashboardServiceController ($scope, $rootScope, $routeParams, $http) {
-  $http.post('/dashboard/'+$routeParams.service).success(function(data){
+  $http.post(api_url_prefix + '/dashboard/'+$routeParams.service).success(function(data){
     $scope.achievements = data.achievements;
     $scope.info = data.info;
   });
 };
 
 function FeedController ($scope, $rootScope, $routeParams, $http) {
-  $http.post('/feed').success(function(topics){
+  $http.post(api_url_prefix + '/feed').success(function(topics){
     $scope.topics = topics;
   });
 };
@@ -52,7 +53,7 @@ function TopController ($scope, $rootScope, $routeParams, $http, $location) {
     $location.path('/top/friends');
   } else if($routeParams.filter === 'friends') {
     
-    $http.post('/top/friends').success(function(top_users){
+    $http.post(api_url_prefix + '/top/friends').success(function(top_users){
       $scope.top_users = top_users;
       $scope.second_menu_chooser_friends = 'choosed';
       $scope.second_menu_chooser_world = '';
@@ -60,7 +61,7 @@ function TopController ($scope, $rootScope, $routeParams, $http, $location) {
   
   } else if($routeParams.filter === 'world') {
   
-    $http.post('/top/world').success(function(top_users){
+    $http.post(api_url_prefix + '/top/world').success(function(top_users){
       $scope.top_users = top_users;
       $scope.second_menu_chooser_friends = '';
       $scope.second_menu_chooser_world = 'choosed';
@@ -74,7 +75,7 @@ function FriendsController ($scope, $rootScope, $routeParams, $http, $location) 
     $location.path('/friends/list');
   } else if($routeParams.select === 'list') {
   
-    $http.post('/friends').success(function(friends_list){
+    $http.post(api_url_prefix + '/friends').success(function(friends_list){
       $scope.friends = friends_list;
       $scope.second_menu_chooser_list = 'choosed';
       $scope.second_menu_chooser_find = '';
