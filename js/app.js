@@ -136,3 +136,13 @@ function FriendsController ($scope, $rootScope, $routeParams, $http, $location) 
 function MessagesController ($scope, $rootScope, $routeParams) {
 
 };
+
+function UserInfoUpdateController($scope, $rootScope, $routeParams, $http) {
+  $http.post(api_url_prefix + '/profile').success(function(userInfo){
+    $scope.userInfo = userInfo;
+  });
+
+  $http.post(api_url_prefix + '/user/getPoints').success(function(points){
+    $scope.points = points;
+  });
+};
