@@ -4,12 +4,16 @@
 
 <div id="content_services">
 
-  <div class="service_tile" ng-repeat="service in services">
+  <div class="service_tile service_tile_valid_{{service.valid}}" ng-repeat="service in services">
     <a href="#/dashboard/{{service.service}}">
+    
     <div class="service_tile_flag">
-      <div class="service_tile_canvas"><img src="http://achivster.com{{service.icon}}" class="service_icon_service"></div>
+      <div class="service_tile_canvas">
+        <div class="service_tile_connection">Подключить</div>
+        <img src="http://achivster.com{{service.icon}}" class="service_icon_service"></div>
       <div class="service_tile_flag_bottom"></div>
     </div>
+    
     <div class="service_tile_name">{{service.service}}</div>
     <div class="service_tile_points"><img src="images/star.svg" class="service_tile_points_star">{{service.earnedPoints}}</div>
     <div class="service_tile_holder"></div>
