@@ -5,7 +5,7 @@
 <div id="content_services">
 
   <div class="service_tile service_tile_valid_{{service.valid}}" ng-repeat="service in services">
-    <a href="#/dashboard/{{service.service}}">
+    <a href="{{service.link}}">
     
     <div class="service_tile_flag">
       <div class="service_tile_canvas">
@@ -30,7 +30,13 @@
     <div class="achievements_tile_flag_right"></div>
     <div class="achievements_tile_name">{{achiv.name}}</div>
     <div class="achievements_tile_right">
-      <div class="achievements_tile_sharing"></div>
+      <div class="achievements_tile_placeholder">
+        <div class="achievements_tile_sharing">
+          <img src="images/s/sharing/vk.svg" class="achievements_tile_sharing_icon">
+          <img src="images/s/sharing/facebook.svg" class="achievements_tile_sharing_icon">
+          <img src="images/s/sharing/twitter.svg" class="achievements_tile_sharing_icon">
+        </div>
+      </div>
       <div class="achievements_tile_points">{{achiv.points}}</div>
       <div class="achievements_tile_date">{{achiv.time}}</div>
     </div>

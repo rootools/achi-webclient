@@ -71,6 +71,15 @@ function DashboardController ($scope, $rootScope, $routeParams, $http) {
   });
 
   $http.post(api_url_prefix + '/dashboard/service_list').success(function(services){
+    
+    for(var i in services) {
+      if(services[i].valid === true) {
+        services[i].link = '#/dashboard/'+services[i].service;
+      } else {
+        services[i].link = api_url_prefix + '/add_service/'+services[i].service;
+      }
+    }
+    
     $scope.services = services;
   });
 };

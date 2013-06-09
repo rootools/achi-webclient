@@ -360,11 +360,20 @@ body {
     font-weight: bold;
     color: @gold-color;
   }
-  .achievements_tile_date, .achievements_tile_sharing {
+  .achievements_tile_date, .achievements_tile_placeholder {
     height: 25px;
     text-align: center;
     font-size: 11pt;
   }
+  .achievements_tile_sharing {
+    display: none;
+  }
+  .achievements_tile_sharing_icon {
+    margin-top: 10px;
+    height: 12px;
+    margin-left: 5px;
+  }
+
 }
 
 .achievements_tile_earned_false, .achievements_tile_earned_false > div {
@@ -386,6 +395,9 @@ body {
     filter: gray;
     -webkit-filter: grayscale(1);
   }
+  .achievements_tile_sharing {
+    display: none !important;
+  }
 }
 
 .achievements_tile_earned_false {
@@ -394,6 +406,10 @@ body {
 
 .achievements_tile:hover {
   .box-shadow(0 0 0);
+}
+
+.achievements_tile:hover .achievements_tile_sharing {
+  display: block;
 }
 
 .friendslist_tile {
