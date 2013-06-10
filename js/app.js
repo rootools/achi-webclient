@@ -4,6 +4,7 @@ var api_url_prefix = '/webapi';
 Achivster.config(function ($routeProvider, $httpProvider) {
   $routeProvider
     .when('/profile', {templateUrl: 'page/profile.html', controller: 'ProfileController'})
+    .when('/u/:user', {templateUrl: 'page/dashboard.html', controller : 'DashboardController'})
     .when('/dashboard', {templateUrl: 'page/dashboard.html', controller : 'DashboardController'})
     .when('/dashboard/:service/', {templateUrl: 'page/dashboard_service.html', controller : 'DashboardServiceController'})
     .when('/feed', {templateUrl: 'page/feed.html', controller : 'FeedController'})
@@ -66,12 +67,12 @@ function ProfileController ($scope, $rootScope, $routeParams, $http, $timeout) {
 };
 
 function DashboardController ($scope, $rootScope, $routeParams, $http) {
-  $http.post(api_url_prefix + '/dashboard/latest').success(function(latest){
+  $http.post(api_url_prefix + '/dashboard/latest', {shortname: $routeParams.user}).success(function(latest){
     $scope.latest = latest;
   });
 
-  $http.post(api_url_prefix + '/dashboard/service_list').success(function(services){
-    
+  $http.post(api_url_prefix + '/dashboard/service_list', {shortname: $routeParams.user}).success(function(services){
+
     for(var i in services) {
       if(services[i].valid === true) {
         services[i].link = '#/dashboard/'+services[i].service;
@@ -79,7 +80,7 @@ function DashboardController ($scope, $rootScope, $routeParams, $http) {
         services[i].link = api_url_prefix + '/add_service/'+services[i].service;
       }
     }
-    
+
     $scope.services = services;
   });
 };
