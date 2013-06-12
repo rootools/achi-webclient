@@ -2,7 +2,9 @@
   <h1>Сводка</h1>
 </div>
 
-<div id="content_services">
+<div id="content_error_shortname" ng-show="latest.error">{{error_text}}</div>
+
+<div id="content_services" ng-hide="latest.error">
 
   <div class="service_tile service_tile_valid_{{service.valid}}" ng-repeat="service in services">
     <a href="{{service.link}}">
@@ -23,7 +25,7 @@
         
 </div>
 
-<div id="content_achievements">
+<div id="content_achievements" ng-hide="latest.error">
   
   <div class="achievements_tile" ng-repeat="achiv in latest">
     <div class="achievements_tile_flag"><img src="http://achivster.com{{achiv.icon}}" class="service_icon_achievements"></div>

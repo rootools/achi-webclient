@@ -143,6 +143,12 @@ body {
   position: relative;
 }
 
+#content_error_shortname {
+  text-align: center;
+  color: @error-color;
+  margin-top: 30px;
+}
+
 // App elems
 .service_icon_service, .service_icon_achievements { 
   height: 48px;
@@ -582,5 +588,12 @@ body {
     float: right;
     font-size: 30px;
     margin-top: 19px;
+  }
+  .news_tile_name_link, .news_tile_name_link:visited {
+    border-bottom: 0;
+    color: @main-color;
+  }
+  .news_tile_name_link:hover {
+    color: #6699cc;
   }
 }

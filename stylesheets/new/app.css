@@ -16,6 +16,7 @@ body {
 a {
   text-decoration: none;
   border-bottom: 1px dashed #006196;
+  color: #006196;
 }
 a:hover {
   color: #6699cc;
@@ -203,6 +204,11 @@ body {
   overflow: hidden;
   padding: 2%;
   position: relative;
+}
+#content_error_shortname {
+  text-align: center;
+  color: #ff0000;
+  margin-top: 30px;
 }
 .service_icon_service,
 .service_icon_achievements {
@@ -674,4 +680,18 @@ body {
   float: right;
   font-size: 30px;
   margin-top: 19px;
+}
+.news_tile .news_tile_name_link,
+.top_tile .news_tile_name_link,
+.messages_list_tile .news_tile_name_link,
+.news_tile .news_tile_name_link:visited,
+.top_tile .news_tile_name_link:visited,
+.messages_list_tile .news_tile_name_link:visited {
+  border-bottom: 0;
+  color: #006196;
+}
+.news_tile .news_tile_name_link:hover,
+.top_tile .news_tile_name_link:hover,
+.messages_list_tile .news_tile_name_link:hover {
+  color: #6699cc;
 }

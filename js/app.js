@@ -69,6 +69,11 @@ function ProfileController ($scope, $rootScope, $routeParams, $http, $timeout) {
 function DashboardController ($scope, $rootScope, $routeParams, $http) {
   $http.post(api_url_prefix + '/dashboard/latest', {shortname: $routeParams.user}).success(function(latest){
     $scope.latest = latest;
+    if(latest.error) {
+      $scope.error = true;
+      $scope.error_text = latest.error;
+    }
+    console.log($scope);
   });
 
   $http.post(api_url_prefix + '/dashboard/service_list', {shortname: $routeParams.user}).success(function(services){
@@ -82,6 +87,7 @@ function DashboardController ($scope, $rootScope, $routeParams, $http) {
     }
 
     $scope.services = services;
+
   });
 };
 
