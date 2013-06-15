@@ -405,9 +405,10 @@ body {
 }
 .achievements_tile .achievements_tile_flag_right {
   float: left;
+  content: "";
   border-top: 50px solid transparent;
   border-bottom: 50px solid transparent;
-  border-left: 25px solid #c00;
+  border-left: 25px solid #c0c0c0;
 }
 .achievements_tile .achievements_tile_name {
   float: left;

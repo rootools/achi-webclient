@@ -2,10 +2,10 @@
   
   <div class="service_tile_sub">
     <div class="service_tile_flag_sub">
-      <div class="service_tile_canvas_sub"><img src="http://achivster.com{{info.icon}}" class="service_icon_service_sub"></div>
+      <div class="service_tile_canvas_sub" style="background: {{info.color}}"><img src="{{info.icon}}" class="service_icon_service_sub"></div>
       <div class="service_tile_flag_bottom_sub"></div>
     </div>
-    <div class="service_tile_name_sub">{{info.service}}</div>
+    <div class="service_tile_name_sub">{{info.name}}</div>
     <div class="service_tile_holder_sub"></div>
     <div class="service_tile_points_sub"><img src="images/white_star.svg" class="service_tile_points_star_sub">{{info.points}}</div>
     <div class="service_tile_earnings_sub">{{info.earned}}/{{info.all}}</div>
@@ -15,9 +15,9 @@
 
 <div id="content_achievements">
   
-  <div class="achievements_tile achievements_tile_earned_{{achievement.earned}}" ng-repeat="achievement in achievements">
-    <div class="achievements_tile_flag"><img src="http://achivster.com{{achievement.icon}}" class="service_icon_achievements"></div>
-    <div class="achievements_tile_flag_right"></div>
+  <div class="achievements_tile achievements_tile_earned_{{achievement.earned}}" ng-repeat="achievement in achievements"  style="border: 3px solid {{achievement.color}}">
+    <div class="achievements_tile_flag" style="background: {{achievement.color}}"><img src="http://achivster.com{{achievement.icon}}" class="service_icon_achievements"></div>
+    <div class="achievements_tile_flag_right" style="border-left: 25px solid {{achievement.color}}"></div>
     <div class="achievements_tile_name">{{achievement.name}}</div>
     <div class="achievements_tile_right">
       <div class="achievements_tile_placeholder">
