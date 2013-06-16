@@ -123,6 +123,7 @@ function DashboardServiceController ($scope, $rootScope, $routeParams, $http) {
 
 function FeedController ($scope, $rootScope, $routeParams, $http) {
   $http.post(path.api_prefix + '/feed').success(function(topics){
+  console.log(topics);
     $scope.topics = topics;
   });
 };

@@ -5,6 +5,7 @@
 <div id="content_feed">
   
   <div class="news_tile" ng-repeat="topic in topics">
+    
     <div class="news_tile_avatar">
       <img src="http://achivster.com{{topic.photo}}">
     </div>
@@ -14,7 +15,8 @@
     </div>
 
     <div class="news_tile_article">
-      Заработал(а) достижение <b>{{topic.aname}}</b> за {{topic.points}} очков.
+      Заработал(а) достижение 
+        <span class="feed_tooltips" title="{{topic.description}}"><b>{{topic.aname}}</b></span> за {{topic.points}} очков.
     </div>
 
     <div class="news_tile_time">
