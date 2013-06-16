@@ -15,13 +15,18 @@
 
 <div id="content_top">
   
+  
   <div class="top_tile" ng-repeat="top_user in top_users">
     <div class="top_tile_avatar">
       <img src="http://achivster.com{{top_user.photo}}">
     </div>
+    
     <div class="top_tile_name">
-      {{top_user.name}}
+      <a href="/#/u/{{top_user.shortname}}" class="news_tile_name_link">
+        {{top_user.name}}
+      </a>
     </div>
+    
     <span class="top_tile_points">
       <img src="images/white_star.svg" class="top_tile_points_star">{{top_user.points}}
     </span>
@@ -29,4 +34,5 @@
       <span class="top_tile_position_text">{{$index + 1}}</span>
     </div>
   </div>
+
 </div>

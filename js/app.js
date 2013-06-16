@@ -123,7 +123,6 @@ function DashboardServiceController ($scope, $rootScope, $routeParams, $http) {
 
 function FeedController ($scope, $rootScope, $routeParams, $http) {
   $http.post(path.api_prefix + '/feed').success(function(topics){
-  console.log(topics);
     $scope.topics = topics;
   });
 };
@@ -151,11 +150,15 @@ function TopController ($scope, $rootScope, $routeParams, $http, $location) {
 };
 
 function FriendsController ($scope, $rootScope, $routeParams, $http, $location) {
+
   if($routeParams.select === undefined) {
     $location.path('/friends/list');
   } else if($routeParams.select === 'list') {
   
     $http.post(path.api_prefix + '/friends').success(function(friends_list){
+      for(var i in friends_list) {
+        friends_list[i].display = function (){return true;}
+      }
       $scope.friends = friends_list;
       $scope.second_menu_chooser_list = 'choosed';
       $scope.second_menu_chooser_find = '';
@@ -171,6 +174,28 @@ function FriendsController ($scope, $rootScope, $routeParams, $http, $location) 
     $scope.second_menu_chooser_find = '';
     $scope.second_menu_chooser_invite = 'choosed';
   }
+
+  $scope.Friendship = function(friend, state) {
+    var uid = friend.uid;
+    
+    if (state % 2 === 0) { var action = 'restore' }
+    else { var action = 'remove'; }
+
+    if(action === 'remove') {
+      friend.opacity = 0.2;
+      friend.display = function (){return false;}
+      $http.post(path.api_prefix + '/friends/remove', {friend_uid: uid}).success(function(){
+        
+      });
+    } else if(action === 'restore') {
+      friend.opacity = 1;
+      friend.display = function (){return true;}
+      $http.post(path.api_prefix + '/friends/restore', {friend_uid: uid}).success(function(){
+        
+      });
+    }
+  
+  };
 };
 
 function MessagesController ($scope, $rootScope, $routeParams) {
