@@ -31,8 +31,14 @@
   </div>
 
   <div id="edit_profile_avatar">
-    <img src="http://achivster.com{{profile.photo}}">
-    <div id="edit_profile_avatar_change_button">Изменить аватар</div>
+    <form action="/webapi/profile/save/avatar" enctype="multipart/form-data" method="POST">
+      <img src="http://achivster.com{{profile.photo}}" id="edit_profile_avatar_image">
+      <div id="edit_profile_avatar_change_button">
+        <div id="edit_profile_avatar_change_button_name">Изменить аватар</div>
+        <input type="file" name="file" id="edit_profile_avatar_change_button_input" accept="image/*"/ onchange="angular.element(this).scope().addAvatar();">
+      </div>
+      <input type="submit" id="edit_profile_avatar_change_button_save" style="display: none;" value="Сохранить" />
+    </form>
   </div>
 
 </div>

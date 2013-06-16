@@ -28,6 +28,7 @@ function ProfileController ($scope, $rootScope, $routeParams, $http, $timeout) {
   $scope.form_error_message = '';
 
   $http.post(path.api_prefix + '/profile').success(function(profile){
+    profile.omg = '';
     $scope.profile = profile;
   });
 
@@ -64,8 +65,13 @@ function ProfileController ($scope, $rootScope, $routeParams, $http, $timeout) {
     } else {
       return false;
     }
-    
   }
+  
+  $scope.addAvatar = function() {
+    var img = document.getElementById('edit_profile_avatar_change_button_input').files[0];
+    document.getElementById('edit_profile_avatar_image').src = window.URL.createObjectURL(img);
+    document.getElementById('edit_profile_avatar_change_button_save').style.display = 'block';
+  };
 };
 
 function DashboardController ($scope, $rootScope, $routeParams, $http) {
