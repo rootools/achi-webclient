@@ -367,7 +367,9 @@ body {
   color: #006196;
 }
 .service_tile_sub .service_tile_points_sub,
-.service_tile_sub .service_tile_earnings_sub {
+.service_tile_sub .service_tile_earnings_sub,
+.service_tile_sub .service_tile_friendship_status_true,
+.service_tile_sub .service_tile_friendship_status_false {
   font-size: 11pt;
   float: left;
   margin-right: 10px;
@@ -383,6 +385,18 @@ body {
   height: 11pt;
   margin-bottom: 4px;
   margin-right: 2px;
+}
+.service_tile_sub .service_tile_friendship_status_false {
+  color: white;
+  padding: 1px 7px 1px 7px;
+  background-color: #006196;
+  font-weight: bold;
+}
+.service_tile_sub .service_tile_friendship_status_true {
+  color: white;
+  padding: 1px 7px 1px 7px;
+  background-color: #cccccc;
+  font-weight: bold;
 }
 .service_tile:hover {
   opacity: 0.8;

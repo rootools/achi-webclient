@@ -28,7 +28,7 @@
       <div class="friendslist_points"><img src="images/white_star.svg" class="friendslist_points_star">{{friend.points}}</div>
       <div class="friendslist_name">{{friend.name}}</div>
     </a>
-    <div class="friendslist_remove" title="Удалить из друзей" ng-click="Friendship(friend, counter = counter + 1)"><img src="images/trash.svg" class="friendslist_remove_icon" ng-show="friend.display() == true"><img src="images/restore.svg" class="friendslist_remove_icon" ng-hide="friend.display() == true"></div>
+    <div class="friendslist_remove" title="{{friend.remove_message}}" ng-click="Friendship(friend, counter = counter + 1)"><img src="images/trash.svg" class="friendslist_remove_icon" ng-show="friend.display() == true"><img src="images/restore.svg" class="friendslist_remove_icon" ng-hide="friend.display() == true"></div>
   </div>
   
 </div>

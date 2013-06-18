@@ -75,6 +75,26 @@ function ProfileController ($scope, $rootScope, $routeParams, $http, $timeout) {
 };
 
 function DashboardController ($scope, $rootScope, $routeParams, $http) {
+  
+  if($routeParams.user && $rootScope.shortname !== $routeParams.user) {
+    $scope.headerStatus = function() { return true; };
+    $http.post(path.api_prefix + '/user/info', {shortname: $routeParams.user}).success(function(info){
+      var uid = info.uid;
+      
+      $http.post(path.api_prefix + '/user/points', {uid: uid}).success(function(points){
+        info.points = points;
+        if(info.friendship === true) {
+          info.friendship = function() { return true; };
+        } else if (info.friendship === false) {
+          info.friendship = function() { return false; };
+        }
+        $scope.info = info;
+      });
+    });
+  } else {
+    $scope.headerStatus = function() { return false; };
+  }
+
   $http.post(path.api_prefix + '/dashboard/latest', {shortname: $routeParams.user}).success(function(latest){
     $scope.latest = latest;
     if(latest.error) {
@@ -133,6 +153,7 @@ function TopController ($scope, $rootScope, $routeParams, $http, $location) {
   } else if($routeParams.filter === 'friends') {
     
     $http.post(path.api_prefix + '/top/friends').success(function(top_users){
+      console.log(top_users)
       $scope.top_users = top_users;
       $scope.second_menu_chooser_friends = 'choosed';
       $scope.second_menu_chooser_world = '';
@@ -141,6 +162,7 @@ function TopController ($scope, $rootScope, $routeParams, $http, $location) {
   } else if($routeParams.filter === 'world') {
   
     $http.post(path.api_prefix + '/top/world').success(function(top_users){
+      console.log(top_users)
       $scope.top_users = top_users;
       $scope.second_menu_chooser_friends = '';
       $scope.second_menu_chooser_world = 'choosed';
@@ -158,6 +180,7 @@ function FriendsController ($scope, $rootScope, $routeParams, $http, $location) 
     $http.post(path.api_prefix + '/friends').success(function(friends_list){
       for(var i in friends_list) {
         friends_list[i].display = function (){return true;}
+        friends_list[i].remove_message = 'Удалить из друзей';
       }
       $scope.friends = friends_list;
       $scope.second_menu_chooser_list = 'choosed';
@@ -182,16 +205,16 @@ function FriendsController ($scope, $rootScope, $routeParams, $http, $location) 
     else { var action = 'remove'; }
 
     if(action === 'remove') {
-      friend.opacity = 0.2;
-      friend.display = function (){return false;}
       $http.post(path.api_prefix + '/friends/remove', {friend_uid: uid}).success(function(){
-        
+        friend.opacity = 0.2;
+        friend.display = function (){return false;}
+        friend.remove_message = 'Восстановить дружбу';
       });
     } else if(action === 'restore') {
-      friend.opacity = 1;
-      friend.display = function (){return true;}
       $http.post(path.api_prefix + '/friends/restore', {friend_uid: uid}).success(function(){
-        
+        friend.opacity = 1;
+        friend.display = function (){return true;}
+        friend.remove_message = 'Удалить из друзей';
       });
     }
   
@@ -205,9 +228,11 @@ function MessagesController ($scope, $rootScope, $routeParams) {
 function UserInfoUpdateController($scope, $rootScope, $routeParams, $http) {
   $http.post(path.api_prefix + '/profile').success(function(userInfo){
     $scope.userInfo = userInfo;
+    $rootScope.uid = userInfo.uid;
+    $rootScope.shortname = userInfo.shortname;
   });
 
-  $http.post(path.api_prefix + '/user/getPoints').success(function(points){
+  $http.post(path.api_prefix + '/user/points').success(function(points){
     $scope.points = points;
   });
 };
