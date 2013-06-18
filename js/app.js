@@ -6,9 +6,10 @@ path.api_prefix = '/webapi';
 Achivster.config(function ($routeProvider, $httpProvider) {
   $routeProvider
     .when('/profile', {templateUrl: 'page/profile.html', controller: 'ProfileController'})
-    .when('/u/:user', {templateUrl: 'page/dashboard.html', controller : 'DashboardController'})
+    .when('/u/:shortname', {templateUrl: 'page/dashboard.html', controller : 'DashboardController'})
     .when('/dashboard', {templateUrl: 'page/dashboard.html', controller : 'DashboardController'})
     .when('/dashboard/:service/', {templateUrl: 'page/dashboard_service.html', controller : 'DashboardServiceController'})
+    .when('/dashboard/:service/:shortname', {templateUrl: 'page/dashboard_service.html', controller : 'DashboardServiceController'})
     .when('/feed', {templateUrl: 'page/feed.html', controller : 'FeedController'})
     .when('/top', {templateUrl: 'page/top.html', controller : 'TopController'})
     .when('/top/:filter', {templateUrl: 'page/top.html', controller : 'TopController'})
@@ -76,9 +77,9 @@ function ProfileController ($scope, $rootScope, $routeParams, $http, $timeout) {
 
 function DashboardController ($scope, $rootScope, $routeParams, $http) {
   
-  if($routeParams.user && $rootScope.shortname !== $routeParams.user) {
+  if($routeParams.shortname && $rootScope.shortname !== $routeParams.shortname) {
     $scope.headerStatus = function() { return true; };
-    $http.post(path.api_prefix + '/user/info', {shortname: $routeParams.user}).success(function(info){
+    $http.post(path.api_prefix + '/user/info', {shortname: $routeParams.shortname}).success(function(info){
       var uid = info.uid;
       
       $http.post(path.api_prefix + '/user/points', {uid: uid}).success(function(points){
@@ -91,11 +92,12 @@ function DashboardController ($scope, $rootScope, $routeParams, $http) {
         $scope.info = info;
       });
     });
+
   } else {
     $scope.headerStatus = function() { return false; };
   }
 
-  $http.post(path.api_prefix + '/dashboard/latest', {shortname: $routeParams.user}).success(function(latest){
+  $http.post(path.api_prefix + '/dashboard/latest', {shortname: $routeParams.shortname}).success(function(latest){
     $scope.latest = latest;
     if(latest.error) {
       $scope.error = true;
@@ -103,10 +105,16 @@ function DashboardController ($scope, $rootScope, $routeParams, $http) {
     }
   });
 
-  $http.post(path.api_prefix + '/dashboard/service_list', {shortname: $routeParams.user}).success(function(services){
+  $http.post(path.api_prefix + '/dashboard/service_list', {shortname: $routeParams.shortname}).success(function(services){
     for(var i in services) {
       if(services[i].valid === true) {
-        services[i].link = '#/dashboard/'+services[i].service;
+        
+        if($routeParams.shortname && $rootScope.shortname !== $routeParams.shortname) {
+          services[i].link = '#/dashboard/'+services[i].service+'/'+$routeParams.shortname;
+        } else {
+          services[i].link = '#/dashboard/'+services[i].service;
+        }
+
       } else {
         services[i].link = path.api_prefix + '/add_service/'+services[i].service;
         services[i].color = '#c0c0c0';
@@ -126,7 +134,12 @@ function DashboardController ($scope, $rootScope, $routeParams, $http) {
 };
 
 function DashboardServiceController ($scope, $rootScope, $routeParams, $http) {
-  $http.post(path.api_prefix + '/dashboard/'+$routeParams.service).success(function(data){
+  if($routeParams.shortname) {
+    var shortname = $routeParams.shortname;
+  } else {
+    var shortname = $rootScope.shortname;  
+  }
+  $http.post(path.api_prefix + '/dashboard/'+$routeParams.service, {shortname: shortname}).success(function(data){
     
     for(var i in data.achievements) {
       if(data.achievements[i].earned === false) {
