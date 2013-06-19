@@ -8,8 +8,8 @@
     <div class="service_tile_name_sub">{{info.name}}</div>
     <div class="service_tile_holder_sub"></div>
     <div class="service_tile_points_sub"><img src="images/white_star.svg" class="service_tile_points_star_sub">{{info.points}}</div>
-    <div class="service_tile_friendship_status_false" ng-hide="info.friendship() == true">Добавить в друзья</div>
-    <div class="service_tile_friendship_status_true" ng-show="info.friendship() == true">Прекратить дружбу</div>
+    <div class="service_tile_friendship_status_false" ng-hide="info.friendship() == true" ng-click="addFriend()">Добавить в друзья</div>
+    <div class="service_tile_friendship_status_true" ng-show="info.friendship() == true" ng-click="removeFriend()">{{info.friendship_true_message}}</div>
     
   </div>
 </div>

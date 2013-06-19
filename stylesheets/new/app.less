@@ -272,7 +272,7 @@ body {
 .service_tile_sub {
   margin-right: 2%;
   margin-bottom: 2%;
-  width: 50%;
+  width: 70%;
   position: relative;
   float: left;
   .service_tile_flag_sub {
@@ -311,6 +311,10 @@ body {
     font-size: 11pt;
     float: left;
     margin-right: 10px;
+  }
+
+  .service_tile_friendship_status_true, .service_tile_friendship_status_false {
+    cursor: pointer;
   }
 
   .service_tile_points_sub {
@@ -646,5 +650,15 @@ body {
   }
   .news_tile_name_link:hover {
     color: #6699cc;
+  }
+  .messages_list_tile_action_button {
+    margin-top: 10px;
+    background-color: @background-color;
+    color: @main-color;
+  }
+  .messages_list_tile_action_message {
+    margin-top: 15px;
+    font-size: 0.8em;
+    color: green;
   }
 }

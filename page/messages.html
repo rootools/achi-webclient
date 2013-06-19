@@ -4,19 +4,22 @@
 
 <div id="content_messages_list">
   
-  <div class="messages_list_tile">
+  <div class="messages_list_tile" ng-repeat="message in messages">
     <div class="messages_list_tile_avatar">
-      <img src="images/me.jpg">
+      <img src="http://achivster.com{{message.photo}}">
     </div>
     <div class="messages_list_tile_name">
-      Meat Boy
+      <a class="news_tile_name_link" href="/#/u/{{message.shortname}}">{{message.name}}</a>
     </div>
     <div class="messages_list_tile_message">
-      Громкостнoй прогрессийный период неизменяем. Соинтервалие, так или иначе, представляет собой однокомпонентный аккорд, что отчасти объясняет такое количество кавер-версий. Аллегро, так или иначе, гармонично. Как было показано выше, внутридискретное арпеджио заканчивает канал, но если бы песен было раз в пять меньше, было бы лучше для всех. Драм-машина имитирует звукорядный хорус, таким образом объектом имитации является число длительностей в каждой из относительно автономных ритмогрупп ведущего голоса. 
+      {{message.data}}
     </div>
-
+    <div class="messages_list_tile_action_message">{{message.action_message}}</div>
+    <button class="messages_list_tile_action_button" ng-click="acceptFriendship(message)" ng-hide="message.hideButtons() == true">Подтвердить</button>
+    <button class="messages_list_tile_action_button" ng-click="rejectFriendship(message)" ng-hide="message.hideButtons() == true">Отклонить</button>
+    
     <div class="messages_list_tile_time">
-      00.00.0000
+      {{message.time}}
     </div>
   </div>
 

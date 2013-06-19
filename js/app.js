@@ -2,6 +2,8 @@ var Achivster = angular.module('achi', []);
 
 var path = {};
 path.api_prefix = '/webapi';
+moment.lang('ru');
+
 
 Achivster.config(function ($routeProvider, $httpProvider) {
   $routeProvider
@@ -86,10 +88,12 @@ function DashboardController ($scope, $rootScope, $routeParams, $http) {
         info.points = points;
         if(info.friendship === true) {
           info.friendship = function() { return true; };
+          info.friendship_true_message = 'Прекратить дружбу';
         } else if (info.friendship === false) {
           info.friendship = function() { return false; };
         }
         $scope.info = info;
+        console.log($scope)
       });
     });
 
@@ -131,6 +135,23 @@ function DashboardController ($scope, $rootScope, $routeParams, $http) {
 
     $scope.services = services;
   });
+
+  $scope.addFriend = function() {
+    var target_uid = $scope.info.uid;
+    
+    $http.post(path.api_prefix + '/friends/add', {uid: target_uid}).success(function(message){
+      $scope.info.friendship = function() { return true; };
+      $scope.info.friendship_true_message = message.message;
+    });
+  }
+
+  $scope.removeFriend = function() {
+    var target_uid = $scope.info.uid;
+    $http.post(path.api_prefix + '/friends/remove', {friend_uid: target_uid}).success(function(message){
+      $scope.info.friendship = function() { return false; };
+      $scope.info.friendship_true_message = 'Добавить в друзья';
+    });
+  }
 };
 
 function DashboardServiceController ($scope, $rootScope, $routeParams, $http) {
@@ -235,8 +256,29 @@ function FriendsController ($scope, $rootScope, $routeParams, $http, $location) 
   };
 };
 
-function MessagesController ($scope, $rootScope, $routeParams) {
+function MessagesController ($scope, $rootScope, $routeParams, $http) {
+  $http.post(path.api_prefix + '/messages/get').success(function(messages){
+    messages = messages.messages;
+    for(var i in messages) {
+      var duration = new Date().getTime() - messages[i].time;
+      messages[i].time = moment.duration(duration, "milliseconds").humanize() + ' назад';
+    }
+    $scope.messages = messages;
+  });
 
+  $scope.acceptFriendship = function(message) {
+    $http.post(path.api_prefix + '/friends/accept', {owner_uid: message.uid}).success(function(){
+      message.action_message = 'Подтверждено';
+      message.hideButtons = function() { return true; }
+    });
+  };
+
+  $scope.rejectFriendship = function(message) {
+    $http.post(path.api_prefix + '/friends/reject', {owner_uid: message.uid}).success(function(){
+      message.action_message = 'Отклонено';
+      message.hideButtons = function() { return true; }
+    });
+  };
 };
 
 function UserInfoUpdateController($scope, $rootScope, $routeParams, $http) {
