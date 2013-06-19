@@ -139,6 +139,7 @@ function DashboardServiceController ($scope, $rootScope, $routeParams, $http) {
   } else {
     var shortname = $rootScope.shortname;  
   }
+  $scope.shortname = shortname;
   $http.post(path.api_prefix + '/dashboard/'+$routeParams.service, {shortname: shortname}).success(function(data){
     
     for(var i in data.achievements) {

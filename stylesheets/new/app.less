@@ -138,9 +138,9 @@ body {
 }
 
 #content_services, #content_achievements, #content_friendslist, #content_edit_profile, #content_feed, #content_top, #content_messages_list {
-  overflow: hidden;
   padding: 2%;
   position: relative;
+  clear: both;
 }
 
 #content_error_shortname {
@@ -270,10 +270,11 @@ body {
 }
 
 .service_tile_sub {
-  cursor: pointer;
   margin-right: 2%;
   margin-bottom: 2%;
-
+  width: 50%;
+  position: relative;
+  float: left;
   .service_tile_flag_sub {
     float: left;
     margin-right: 10px;

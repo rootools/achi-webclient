@@ -201,9 +201,9 @@ body {
 #content_feed,
 #content_top,
 #content_messages_list {
-  overflow: hidden;
   padding: 2%;
   position: relative;
+  clear: both;
 }
 #content_error_shortname {
   text-align: center;
@@ -331,9 +331,11 @@ body {
   position: relative;
 }
 .service_tile_sub {
-  cursor: pointer;
   margin-right: 2%;
   margin-bottom: 2%;
+  width: 50%;
+  position: relative;
+  float: left;
 }
 .service_tile_sub .service_tile_flag_sub {
   float: left;
