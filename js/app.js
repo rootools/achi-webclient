@@ -274,6 +274,11 @@ function FriendsController ($scope, $rootScope, $routeParams, $http, $location) 
 function MessagesController ($scope, $rootScope, $routeParams, $http) {
   $http.post(path.api_prefix + '/messages/get').success(function(messages){
     messages = messages.messages;
+    if(messages.length > 0) {
+      $scope.hideNullMessage = function() {
+        return true;
+      }
+    }
     for(var i in messages) {
       var duration = new Date().getTime() - messages[i].time;
       messages[i].time = moment.duration(duration, "milliseconds").humanize() + ' назад';

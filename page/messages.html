@@ -4,6 +4,8 @@
 
 <div id="content_messages_list">
   
+
+  <div ng-hide="hideNullMessage() == true">У вас пока нет новых сообщений.</div>
   <div class="messages_list_tile" ng-repeat="message in messages">
     <div class="messages_list_tile_avatar">
       <img src="http://achivster.com{{message.photo}}">
