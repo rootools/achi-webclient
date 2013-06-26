@@ -22,20 +22,30 @@
 
 <div id="content_achievements">
   
-  <div class="achievements_tile achievements_tile_earned_{{achievement.earned}}" ng-repeat="achievement in achievements"  style="border: 3px solid {{achievement.color}}">
+  <div class="achievements_tile achievements_tile_earned_{{achievement.earned}}" ng-class="{'achievements_tile_clicked': !clicked, 'achievements_tile_clicked': clicked}" ng-repeat="achievement in achievements"  style="border: 3px solid {{achievement.color}}" ng-click="clicked = !clicked">
     <div class="achievements_tile_flag" style="background: {{achievement.color}}"><img src="http://achivster.com{{achievement.icon}}" class="service_icon_achievements"></div>
     <div class="achievements_tile_flag_right" style="border-left: 25px solid {{achievement.color}}"></div>
     <div class="achievements_tile_name">{{achievement.name}}</div>
     <div class="achievements_tile_right">
-      <div class="achievements_tile_placeholder">
-        <div class="achievements_tile_sharing">
-          <img src="images/s/sharing/vk.svg" class="achievements_tile_sharing_icon">
-          <img src="images/s/sharing/twitter.svg" class="achievements_tile_sharing_icon">
-          <img src="images/s/sharing/facebook.svg" class="achievements_tile_sharing_icon">
-        </div>
-      </div>
+      <div class="achievements_tile_placeholder"></div>
       <div class="achievements_tile_points">{{achievement.points}}</div>
       <div class="achievements_tile_date">{{achievement.time}}</div>
+    </div>
+    <div class="achievements_tile_description">
+      {{achievement.description}}
+
+      <div class="achievements_tile_sharing" ng-hide="hideSharing() == true">
+        <!--<img src="images/s/sharing/vk.svg" class="achievements_tile_sharing_icon">-->
+        
+        <a target="_blank" href="{{achievement.sharingTwitter}}" title="Рассказать друзьям">
+          <img src="images/s/sharing/twitter.svg" class="achievements_tile_sharing_icon">
+        </a>
+        
+        <a target="_blank" href="{{achievement.sharingFacebook}}" title="Рассказать друзьям">
+          <img src="images/s/sharing/facebook.svg" class="achievements_tile_sharing_icon">
+        </a>
+        
+        </div>
     </div>
   </div>
 

@@ -1,6 +1,6 @@
-/*@import url(http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext);*/
-/*@import url(http://fonts.googleapis.com/css?family=Cuprum&subset=latin,cyrillic);*/
-/*@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic-ext,cyrillic);*/
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=latin,cyrillic);
+
+@import url(http://fonts.googleapis.com/css?family=Ubuntu&subset=latin,cyrillic);
 .container-fluid {
   padding: 0px;
   height: 100%;
@@ -10,12 +10,13 @@ body {
   margin: 0px;
   padding: 0px;
   height: 100%;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Ubuntu Condensed', sans-serif;
   font-size: 14pt;
 }
 a {
   text-decoration: none;
-  border-bottom: 1px dashed #006196;
+  /*border-bottom: 1px dashed @main-color;*/
+
   color: #006196;
 }
 a:hover {
@@ -66,7 +67,7 @@ input[type="submit"] {
   text-align: center;
   vertical-align: middle !important;
   width: auto;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Ubuntu Condensed', sans-serif;
 }
 h1 {
   font-style: bold;
@@ -80,9 +81,11 @@ h2 {
   display: inline-block;
 }
 body {
-  /*background-color: @background-color;*/
-
   background-image: url('../../images/bg.png');
+}
+#beta_ribbon {
+  position: absolute;
+  right: 0;
 }
 #app_main {
   height: 100%;
@@ -179,7 +182,7 @@ body {
 }
 #user_info #user_info_edit_profile {
   margin-top: 4px;
-  font-size: 8px;
+  font-size: 0.775em;
   color: #999999;
 }
 #user_info #user_info_name {
@@ -408,7 +411,9 @@ body {
   opacity: 0.8;
 }
 .achievements_tile {
-  border: 3px solid #c00;
+  text-shadow: -1px 0 #ffffff, 0 1px #ffffff, 1px 0 #ffffff, 0 -1px #ffffff;
+  position: relative;
+  border: 3px solid grey;
   -webkit-box-shadow: 0 0 1px;
   -moz-box-shadow: 0 0 1px;
   box-shadow: 0 0 1px;
@@ -416,28 +421,36 @@ body {
   margin-bottom: 2%;
   height: 100px;
   max-width: 575px;
+  transition: height 1s;
+  -webkit-transition: height 1s;
 }
 .achievements_tile .achievements_tile_flag {
   float: left;
-  background-color: #c00;
+  background-color: grey;
   height: 100px;
-  width: 75px;
+  width: 80px;
+  transition: width 1s;
+  -webkit-transition: width 1s;
 }
 .achievements_tile .achievements_tile_flag_right {
   float: left;
   content: "";
   border-top: 50px solid transparent;
   border-bottom: 50px solid transparent;
-  border-left: 25px solid #c0c0c0;
+  border-left: 25px solid grey;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
 }
 .achievements_tile .achievements_tile_name {
-  float: left;
+  position: absolute;
+  left: 120px;
   padding-top: 36px;
   padding-left: 10px;
   font-size: 20px;
 }
 .achievements_tile .achievements_tile_right {
-  float: right;
+  position: absolute;
+  right: 0px;
   width: 100px;
 }
 .achievements_tile .achievements_tile_points {
@@ -454,16 +467,28 @@ body {
   font-size: 11pt;
 }
 .achievements_tile .achievements_tile_sharing {
-  display: none;
+  position: relative;
+  float: right;
+  margin-top: 30px;
+  margin-right: 40px;
 }
 .achievements_tile .achievements_tile_sharing_icon {
+  cursor: pointer;
   margin-top: 10px;
-  height: 12px;
+  height: 14px;
   margin-left: 5px;
+}
+.achievements_tile .achievements_tile_description {
+  position: absolute;
+  margin-top: 110px;
+  margin-left: 15px;
+  opacity: 0;
+  width: 100%;
 }
 .achievements_tile_earned_false,
 .achievements_tile_earned_false > div {
-  background-color: #c0c0c0;
+  /*background-color: #c0c0c0;*/
+
   color: gray !important;
 }
 .achievements_tile_earned_false .achievements_tile_flag,
@@ -498,8 +523,21 @@ body {
   -moz-box-shadow: 0 0 0;
   box-shadow: 0 0 0;
 }
-.achievements_tile:hover .achievements_tile_sharing {
-  display: block;
+.achievements_tile_clicked,
+.achievements_tile:hover {
+  height: 175px;
+}
+.achievements_tile_clicked .achievements_tile_flag,
+.achievements_tile:hover .achievements_tile_flag {
+  width: 575px;
+}
+.achievements_tile_clicked .achievements_tile_flag_right,
+.achievements_tile:hover .achievements_tile_flag_right {
+  opacity: 0;
+}
+.achievements_tile_clicked .achievements_tile_description,
+.achievements_tile:hover .achievements_tile_description {
+  opacity: 1;
 }
 .friendslist_tile {
   float: left;
@@ -700,6 +738,7 @@ body {
   font-size: 0.8em;
   margin-bottom: 5px;
   position: relative;
+  font-family: 'Ubuntu', sans-serif;
 }
 .news_tile .news_tile_time,
 .top_tile .news_tile_time,
