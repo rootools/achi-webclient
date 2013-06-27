@@ -100,7 +100,27 @@ function ProfileController ($scope, $rootScope, $routeParams, $http, $timeout) {
       return false;
     }
   }
-  
+
+  $scope.checkShortname = function() {
+    var shortname = $scope.profile.shortname;
+    var reg = /^[a-z0-9_-]{3,20}$/;
+    if(!reg.test(shortname)) {
+      $scope.form_error_message = 'Используются недопустимые символы в поле Псевдоним';
+    } else {
+      $scope.form_error_message = '';
+    }
+  }
+
+  $scope.checkName = function() {
+    var name = $scope.profile.name;
+    var reg = /^[a-z A-Z а-я А-Я]{3,20}$/;
+    if(!reg.test(name)) {
+      $scope.form_error_message = 'Используются недопустимые символы в поле Имя';
+    } else {
+      $scope.form_error_message = '';
+    }
+  }
+
   $scope.addAvatar = function() {
     var img = document.getElementById('edit_profile_avatar_change_button_input').files[0];
     document.getElementById('edit_profile_avatar_image').src = window.URL.createObjectURL(img);
