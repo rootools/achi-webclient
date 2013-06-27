@@ -23,6 +23,37 @@ Achivster.config(function ($routeProvider, $httpProvider) {
     .otherwise({redirectTo: '/dashboard'});
 });
 
+Achivster.directive('fastClick', ['$parse', function ($parse) {
+  return function (scope, element, attr) {
+    var fn = $parse(attr['fastClick']);
+    var initX, initY, endX, endY;
+    var elem = element;
+    var maxMove = 4;
+
+    elem.bind('touchstart', function (event) {
+      event.preventDefault();
+      initX = endX = event.touches[0].clientX;
+      initY = endY = event.touches[0].clientY;
+      elem.bind('touchend', onTouchEnd);
+      elem.bind('touchmove', onTouchMove);
+    });
+
+    function onTouchMove(event) {
+      endX = event.touches[0].clientX;
+      endY = event.touches[0].clientY;
+    };
+
+    function onTouchEnd(event) {
+      elem.unbind('touchmove');
+      elem.unbind('touchend');
+      if (Math.abs(endX - initX) > maxMove) return;
+      if (Math.abs(endY - initY) > maxMove) return;
+      scope.$apply(function () { fn(scope, { $event: event }); });
+    };
+  };
+} ]);
+
+
 function AppController ($scope, $rootScope, $http) {
 
 };
