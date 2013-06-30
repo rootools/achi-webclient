@@ -129,7 +129,6 @@ function ProfileController ($scope, $rootScope, $routeParams, $http, $timeout) {
 };
 
 function DashboardController ($scope, $rootScope, $routeParams, $http) {
-  
   if($routeParams.shortname && $rootScope.shortname !== $routeParams.shortname) {
     $scope.headerStatus = function() { return true; };
     $scope.hideSharing = function() { return true; };
