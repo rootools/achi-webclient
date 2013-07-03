@@ -156,43 +156,36 @@ function DashboardController ($scope, $rootScope, $routeParams, $http) {
       latest[i].sharingTwitter = 'http://twitter.com/intent/tweet?text='+encodeURIComponent('Я заработал(а) достижение "'+latest[i].name+'"" за '+latest[i].points+' очков. http://achivster.com/#/u/'+$rootScope.shortname+' #achivster');
       latest[i].sharingFacebook = 'https://www.facebook.com/dialog/feed?app_id=258024554279925&link=https://developers.facebook.com/docs/reference/dialogs/&picture=http://achivster.com'+latest[i].icon+'&name='+encodeURIComponent('Я заработал(а) достижение!')+'&caption=http://achivster.com/&description="'+encodeURIComponent(latest[i].name + '" за '+latest[i].points+' очков. #achivster')+'&redirect_uri='+encodeURIComponent('http://achivster.com/#/u/'+$rootScope.shortname); 
     }
-    $scope.latest = latest;
-    if(latest.error) {
-      $scope.error = true;
-      $scope.error_text = latest.error;
-    }
+
+      $http.post(path.api_prefix + '/dashboard/service_list', {shortname: $routeParams.shortname}).success(function(services){
+        for(var i in services) {
+          if(services[i].valid === true) {
+
+            if($routeParams.shortname && $rootScope.shortname !== $routeParams.shortname) {
+              services[i].link = '#/dashboard/'+services[i].service+'/'+$routeParams.shortname;
+            } else {
+              services[i].link = '#/dashboard/'+services[i].service;
+            }
+
+          } else {
+            services[i].link = path.api_prefix + '/add_service/'+services[i].service;
+            services[i].color = '#c0c0c0';
+          }
+        }
+
+        for(var i in latest) {
+          for(var n in services) {
+            if(services[n].service === latest[i].service) {
+              latest[i].color = services[n].color;
+            }
+          }
+        }
+
+        $scope.latest = latest;
+        $scope.services = services;
+      });
+
     
-    /*  var vk_sharing_object_1 = {url: 'http://achivster.com/#/u/'+$rootScope.shortname, title: 'Я заработал достижение!', image: $scope.latest[i].icon, noparse: true, description: 'aaa'};
-      var vk_sharing_object_2 = {type: 'custom', text: '<i class="websymbols social_sharing_button" id="vkontakte_sharing">v</i>'};
-      document.getElementById('sharingVkontakte_'+$scope.latest[i].aid).innerHTML = VK.Share.button(vk_sharing_object_1, vk_sharing_object_2);
-    */
-  });
-
-  $http.post(path.api_prefix + '/dashboard/service_list', {shortname: $routeParams.shortname}).success(function(services){
-    for(var i in services) {
-      if(services[i].valid === true) {
-        
-        if($routeParams.shortname && $rootScope.shortname !== $routeParams.shortname) {
-          services[i].link = '#/dashboard/'+services[i].service+'/'+$routeParams.shortname;
-        } else {
-          services[i].link = '#/dashboard/'+services[i].service;
-        }
-
-      } else {
-        services[i].link = path.api_prefix + '/add_service/'+services[i].service;
-        services[i].color = '#c0c0c0';
-      }
-    }
-
-    for(var i in $scope.latest) {
-      for(var n in services) {
-        if(services[n].service === $scope.latest[i].service) {
-          $scope.latest[i].color = services[n].color;
-        }
-      }
-    }
-
-    $scope.services = services;
   });
 
   $scope.addFriend = function() {
