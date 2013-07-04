@@ -104,6 +104,9 @@ body {
     min-width: 22.6936%;
     margin-left: 0;
   }
+  .service_tile_name {
+    font-size: 0.7em;
+  }
 }
 #content {
   background-color: white;
