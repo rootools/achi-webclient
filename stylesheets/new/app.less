@@ -372,10 +372,7 @@ body {
   .box-shadow(0 0 1px);
   overflow: hidden;
   margin-bottom: 2%;
-  height: 100px;
   max-width: 575px;
-  transition: height 0.5s;
-  -webkit-transition: height 0.5s;
   .achievements_tile_flag {
     float: left;
     background-color: grey;
@@ -418,10 +415,12 @@ body {
     font-size: 11pt;
   }
   .achievements_tile_sharing {
+    opacity: 0;
     position: relative;
     float: right;
-    margin-top: 30px;
-    margin-right: 40px;
+    margin-top: 60px;
+    margin-right: 10px;
+    margin-bottom: 10px;
   }
   .achievements_tile_sharing_icon {
     cursor: pointer;
@@ -430,16 +429,16 @@ body {
     margin-left: 5px;
   }
   .achievements_tile_description {
-    position: absolute;
-    margin-top: 110px;
-    margin-left: 15px;
+    font-size: 0;
     opacity: 0;
-    width: 100%;
+    transition: opacity 1s linear 1s;
+    -webkit-transition: opacity 0.1s linear 0.5s;
+    width: 550px;
+    margin-left: 25px;
   }
 }
 
 .achievements_tile_earned_false, .achievements_tile_earned_false > div {
-  /*background-color: #c0c0c0;*/
   color: gray !important;
   .achievements_tile_flag {
     background-color: gray !important;
@@ -471,7 +470,6 @@ body {
 }
 
 .achievements_tile_clicked, .achievements_tile:hover {
-  height: 175px;
   .achievements_tile_flag {
     width: 575px;
   }
@@ -479,6 +477,10 @@ body {
     opacity: 0;
   }
   .achievements_tile_description {
+    font-size: 14pt;
+    opacity: 1;
+  }
+  .achievements_tile_sharing {
     opacity: 1;
   }
 }
