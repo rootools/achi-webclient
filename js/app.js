@@ -134,7 +134,6 @@ function DashboardController ($scope, $rootScope, $routeParams, $http) {
     $scope.hideSharing = function() { return true; };
     $http.post(path.api_prefix + '/user/info', {shortname: $routeParams.shortname}).success(function(info){
       var uid = info.uid;
-      
       $http.post(path.api_prefix + '/user/points', {uid: uid}).success(function(points){
         info.points = points;
         if(info.friendship === true) {
@@ -344,8 +343,11 @@ function MessagesController ($scope, $rootScope, $routeParams, $http) {
   };
 };
 
-function UserInfoUpdateController($scope, $rootScope, $routeParams, $http) {
+function UserInfoUpdateController($scope, $rootScope, $routeParams, $http, $location) {
   $http.post(path.api_prefix + '/profile').success(function(userInfo){
+    if(!userInfo) {
+      document.location.href='/login';
+    }
     $scope.userInfo = userInfo;
     $rootScope.uid = userInfo.uid;
     $rootScope.shortname = userInfo.shortname;
