@@ -557,6 +557,7 @@ body {
   font-size: 14pt;
   opacity: 1;
   width: 550px;
+  margin-bottom: 15px;
   margin-left: 25px;
 }
 .achievements_tile_clicked .achievements_tile_sharing,
