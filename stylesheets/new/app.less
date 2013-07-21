@@ -165,10 +165,14 @@ body {
   border-bottom: 1px solid @tip-color;
 }
 
-#content_services, #content_achievements, #content_friendslist, #content_edit_profile, #content_feed, #content_top, #content_messages_list {
+#content_services, #content_services_list, #content_achievements, #content_friendslist, #content_edit_profile, #content_feed, #content_top, #content_messages_list {
   padding: 2%;
   position: relative;
   clear: both;
+}
+
+#content_services_list {
+  margin-top: 8px;
 }
 
 #content_error_shortname {
@@ -375,6 +379,60 @@ body {
   opacity: 0.8;
 }
 
+.services_list_row {
+  border-bottom: 1px solid #999;
+  height: 52px;
+  font-size: 12pt;
+  a {
+    color: black;
+  }
+  .services_list_row_square {
+    position: relative;
+    float: left;
+    width: 32px;
+    height: 32px;
+    margin-top: 10px;
+  }
+  .services_list_row_icon {
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 22px;
+    height: 22px;
+  }
+  .services_list_row_name {
+    position: relative;
+    float: left;
+    top: 16px;
+    left: 10px;
+  }
+  .services_list_row_connection {
+    position: relative;
+    float: left;
+    top: 16px;
+    left: 14px;
+  }
+  .services_list_row_earnings, .services_list_row_points, .services_list_row_percent{
+    position: relative;
+    float: right;
+    width: 65px;
+    top: 16px;
+    .services_list_row_points_star {
+      width: 11pt;
+      height: 11pt;
+      margin-bottom: 4px;
+      margin-right: 2px;
+    }
+  }
+}
+
+.services_list_row_complite_bar {
+  position: absolute;
+  height: 30px;
+  margin-top: 10px;
+  border: 1px solid #999;
+  background-image: url('../../images/bg.png');
+}
+
 .achievements_tile {
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
   position: relative;
@@ -496,6 +554,24 @@ body {
   }
   .achievements_tile_sharing {
     opacity: 1;
+  }
+}
+
+.dashboard_sorting {
+  height: 26px;
+  border-bottom: 1px solid #999;
+  span {
+    cursor: pointer;
+    position: relative;
+    float: right;
+    color: @main-color;
+    font-size: 10pt;
+    margin: 3px 12px 3px 3px;
+    padding: 1px 6px 2px 6px;
+  }
+  .dashboard_sorting_elem.choosed {
+    background-color: @main-color;
+    color: white;
   }
 }
 

@@ -15,8 +15,34 @@
 </div>
 
 <div id="content_error_shortname" ng-show="latest.error">{{error_text}}</div>
+<div class="dashboard_sorting">
+  <span class="dashboard_sorting_elem {{dashboard_sorting_elem_list}}" ng-click="show_as_list()">Список</span>
+  <span class="dashboard_sorting_elem {{dashboard_sorting_elem_icon}}" ng-click="show_as_icons()">Значки</span>
+</div>
 
-<div id="content_services" ng-hide="latest.error">
+<div id="content_services_list" ng-hide="latest.error || !sort_handler">
+  <div class="services_list_row" ng-repeat="service in services">
+    
+    <a href="{{service.link}}">
+      
+      <div class="services_list_row_complite_bar" style="width: {{service.percent - 4}}%"></div>
+      <div class="services_list_row_square" style="background: {{service.color}}">
+        <img class="services_list_row_icon" src="{{service.icon}}">
+      </div>
+      
+      <div class="services_list_row_name">{{service.name}}</div>
+      <div class="services_list_row_connection" ng-hide="service.valid">(Подключить)</div>
+
+      <div class="services_list_row_points"><img src="images/star.svg" class="services_list_row_points_star">{{service.earnedPoints}}</div>
+      <div class="services_list_row_earnings">{{service.earned}}/{{service.full}}</div>
+      <div class="services_list_row_percent">{{service.percent}}%</div>
+
+    </a>
+
+  </div>  
+</div>
+
+<div id="content_services" ng-hide="latest.error || sort_handler">
 
   <div class="service_tile service_tile_valid_{{service.valid}}" ng-repeat="service in services">
     

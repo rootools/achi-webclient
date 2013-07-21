@@ -158,6 +158,7 @@ function DashboardController ($scope, $rootScope, $routeParams, $http) {
 
       $http.post(path.api_prefix + '/dashboard/service_list', {shortname: $routeParams.shortname}).success(function(services){
         for(var i in services) {
+          services[i].percent = Math.floor(services[i].earned * 100 / services[i].full);
           if(services[i].valid === true) {
 
             if($routeParams.shortname && $rootScope.shortname !== $routeParams.shortname) {
@@ -182,6 +183,7 @@ function DashboardController ($scope, $rootScope, $routeParams, $http) {
 
         $scope.latest = latest;
         $scope.services = services;
+
       });
 
     
@@ -202,6 +204,21 @@ function DashboardController ($scope, $rootScope, $routeParams, $http) {
       $scope.info.friendship = function() { return false; };
       $scope.info.friendship_true_message = 'Добавить в друзья';
     });
+  }
+
+  $scope.dashboard_sorting_elem_list = '';
+  $scope.dashboard_sorting_elem_icon = 'choosed';
+
+  $scope.show_as_list = function() {
+    $scope.sort_handler = true;
+    $scope.dashboard_sorting_elem_list = 'choosed';
+    $scope.dashboard_sorting_elem_icon = '';
+  }
+
+  $scope.show_as_icons = function() {
+    $scope.sort_handler = false;
+    $scope.dashboard_sorting_elem_list = '';
+    $scope.dashboard_sorting_elem_icon = 'choosed';
   }
 
 };
