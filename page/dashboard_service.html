@@ -22,7 +22,7 @@
 
 <div id="content_achievements">
   
-  <div class="achievements_tile achievements_tile_earned_{{achievement.earned}}" ng-class="{'achievements_tile_clicked': !clicked, 'achievements_tile_clicked': clicked}" ng-repeat="achievement in achievements"  style="border: 3px solid {{achievement.color}}" fast-click="clicked = !clicked">
+  <div class="achievements_tile achievements_tile_earned_{{achievement.earned}}" ng-repeat="achievement in achievements" style="border: 3px solid {{achievement.color}}" ng-click="showAchievementDescription(achievement)">
     <div class="achievements_tile_flag" style="background: {{achievement.color}}"><img src="http://achivster.com{{achievement.icon}}" class="service_icon_achievements"></div>
     <div class="achievements_tile_flag_right" style="border-left: 25px solid {{achievement.color}}"></div>
     <div class="achievements_tile_name">{{achievement.name}}</div>
@@ -50,3 +50,5 @@
   </div>
 
 </div>
+
+<achievement-description ng-show="showDescription"></achievement-description>

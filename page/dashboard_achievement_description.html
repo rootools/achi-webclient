@@ -1,0 +1,30 @@
+<div class="dashboard_achievement_description">
+	
+	<div class="dashboard_achievement_description_close"><img src="images/close.svg" ng-click="closeAchievementDescription()"></div>
+
+	<div class="achievements_tile" style="border: 3px solid {{achiv.color}}">
+		<div class="achievements_tile_flag" style="background: {{achiv.color}}"><img src="http://achivster.com{{achiv.icon}}" class="service_icon_achievements"></div>
+	  <div class="achievements_tile_flag_right" style="border-left: 25px solid {{achiv.color}}"></div>
+		<div class="achievements_tile_name">{{achiv.name}}</div>
+	  <div class="achievements_tile_right">
+	    <div class="achievements_tile_placeholder"></div>
+	    <div class="achievements_tile_points">{{achiv.points}}</div>
+	    <div class="achievements_tile_date">{{achiv.time}}</div>
+	  </div>
+	</div>
+
+  <div class="dashboard_achievement_description_sharing">
+  	<a target="_blank" href="{{achiv.sharingFacebook}}" title="Рассказать друзьям">
+  	  <img src="images/s/sharing/facebook.svg" class="achievements_tile_sharing_icon">
+    </a>
+
+  	<a target="_blank" href="{{achiv.sharingTwitter}}" title="Рассказать друзьям">
+      <img src="images/s/sharing/twitter.svg" class="achievements_tile_sharing_icon">
+    </a>
+
+    <span class="achievements_tile_sharing_icon">Поделиться:</span>
+  </div>
+
+  <div class="dashboard_achievement_description_description">{{achiv.description}}</div>
+
+</div>

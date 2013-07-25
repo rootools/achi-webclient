@@ -1,4 +1,4 @@
-var Achivster = angular.module('achi', []);
+var Achivster = angular.module('achi', ['ui.bootstrap']);
 
 var path = {};
 path.api_prefix = '/webapi';
@@ -52,6 +52,15 @@ Achivster.directive('fastClick', ['$parse', function ($parse) {
     };
   };
 } ]);
+
+Achivster.directive('achievementDescription', function(){
+  return {
+    restrict: 'E',
+    replace: true,
+    transclude: true,
+    templateUrl: 'page/dashboard_achievement_description.html'
+  }
+});
 
 
 function AppController ($scope, $rootScope, $http) {
@@ -223,7 +232,7 @@ function DashboardController ($scope, $rootScope, $routeParams, $http) {
 
 };
 
-function DashboardServiceController ($scope, $rootScope, $routeParams, $http) {
+function DashboardServiceController ($scope, $rootScope, $routeParams, $http, $dialog) {
   if($routeParams.shortname && $rootScope.shortname !== $routeParams.shortname) {
     $scope.hideSharing = function() { return true; };
   }
@@ -250,7 +259,22 @@ function DashboardServiceController ($scope, $rootScope, $routeParams, $http) {
     $scope.achievements = data.achievements;
     $scope.info = data.info;
   });
+
+  $scope.showAchievementDescription = function(achiv) {
+    $scope.showDescription = true;
+    $scope.achiv = achiv;
+    $rootScope.pageGreyscaled = true;
+  };
+
+  $scope.closeAchievementDescription = function() {
+    $scope.showDescription = false;
+    $rootScope.pageGreyscaled = false;
+  };
 };
+
+function DashboardAchievementDescriptionController($scope) {
+
+}
 
 function FeedController ($scope, $rootScope, $routeParams, $http) {
   $http.post(path.api_prefix + '/feed').success(function(topics){
@@ -328,6 +352,7 @@ function FriendsController ($scope, $rootScope, $routeParams, $http, $location) 
     }
   
   };
+
 };
 
 function MessagesController ($scope, $rootScope, $routeParams, $http) {
