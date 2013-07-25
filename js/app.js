@@ -1,4 +1,4 @@
-var Achivster = angular.module('achi', ['ui.bootstrap']);
+var Achivster = angular.module('achi', []);
 
 var path = {};
 path.api_prefix = '/webapi';
@@ -232,9 +232,11 @@ function DashboardController ($scope, $rootScope, $routeParams, $http) {
 
 };
 
-function DashboardServiceController ($scope, $rootScope, $routeParams, $http, $dialog) {
+function DashboardServiceController ($scope, $rootScope, $routeParams, $http) {
   if($routeParams.shortname && $rootScope.shortname !== $routeParams.shortname) {
-    $scope.hideSharing = function() { return true; };
+    $scope.hideSharing = false;
+  } else {
+    $scope.hideSharing = true;
   }
   if($routeParams.shortname) {
     var shortname = $routeParams.shortname;
@@ -263,12 +265,11 @@ function DashboardServiceController ($scope, $rootScope, $routeParams, $http, $d
   $scope.showAchievementDescription = function(achiv) {
     $scope.showDescription = true;
     $scope.achiv = achiv;
-    $rootScope.pageGreyscaled = true;
+    console.log($scope.hideSharing);
   };
 
   $scope.closeAchievementDescription = function() {
     $scope.showDescription = false;
-    $rootScope.pageGreyscaled = false;
   };
 };
 
