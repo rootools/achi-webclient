@@ -23,7 +23,7 @@ Achivster.config(function ($routeProvider, $httpProvider) {
     .otherwise({redirectTo: '/dashboard'});
 });
 
-Achivster.directive('fastClick', ['$parse', function ($parse) {
+/*Achivster.directive('fastClick', ['$parse', function ($parse) {
   return function (scope, element, attr) {
     var fn = $parse(attr['fastClick']);
     var initX, initY, endX, endY;
@@ -51,7 +51,7 @@ Achivster.directive('fastClick', ['$parse', function ($parse) {
       scope.$apply(function () { fn(scope, { $event: event }); });
     };
   };
-} ]);
+} ]);*/
 
 Achivster.directive('achievementDescription', function(){
   return {
@@ -61,7 +61,6 @@ Achivster.directive('achievementDescription', function(){
     templateUrl: 'page/dashboard_achievement_description.html'
   }
 });
-
 
 function AppController ($scope, $rootScope, $http) {
 
@@ -140,7 +139,7 @@ function ProfileController ($scope, $rootScope, $routeParams, $http, $timeout) {
 function DashboardController ($scope, $rootScope, $routeParams, $http) {
   if($routeParams.shortname && $rootScope.shortname && $rootScope.shortname !== $routeParams.shortname) {
     $scope.headerStatus = function() { return true; };
-    $scope.hideSharing = function() { return true; };
+    $scope.hideSharing = false;
     $http.post(path.api_prefix + '/user/info', {shortname: $routeParams.shortname}).success(function(info){
       var uid = info.uid;
       $http.post(path.api_prefix + '/user/points', {uid: uid}).success(function(points){
@@ -156,13 +155,17 @@ function DashboardController ($scope, $rootScope, $routeParams, $http) {
     });
 
   } else {
+    $scope.hideSharing = true;
     $scope.headerStatus = function() { return false; };
   }
 
   $http.post(path.api_prefix + '/dashboard/latest', {shortname: $routeParams.shortname}).success(function(latest){
+    
     for(var i in latest) {
-      latest[i].sharingTwitter = 'http://twitter.com/intent/tweet?text='+encodeURIComponent('Я заработал(а) достижение "'+latest[i].name+'"" за '+latest[i].points+' очков. http://achivster.com/#/u/'+$rootScope.shortname+' #achivster');
-      latest[i].sharingFacebook = 'https://www.facebook.com/dialog/feed?app_id=258024554279925&link=https://developers.facebook.com/docs/reference/dialogs/&picture=http://achivster.com'+latest[i].icon+'&name='+encodeURIComponent('Я заработал(а) достижение!')+'&caption=http://achivster.com/&description="'+encodeURIComponent(latest[i].name + '" за '+latest[i].points+' очков. #achivster')+'&redirect_uri='+encodeURIComponent('http://achivster.com/#/u/'+$rootScope.shortname); 
+      latest[i].earned = true;
+      latest[i].sharingTwitter = 'http://twitter.com/intent/tweet?text='+encodeURIComponent('Я заработал(а) достижение "'+latest[i].name+'" за '+latest[i].points+' очков. http://achivster.com/#/u/'+$rootScope.shortname+' #achivster');
+      latest[i].sharingFacebook = 'https://www.facebook.com/dialog/feed?app_id=258024554279925&link=https://developers.facebook.com/docs/reference/dialogs/&picture=http://achivster.com'+latest[i].icon+'&name='+encodeURIComponent('Я заработал(а) достижение!')+'&caption=http://achivster.com/&description="'+encodeURIComponent(latest[i].name + '" за '+latest[i].points+' очков. #achivster')+'&redirect_uri='+encodeURIComponent('http://achivster.com/#/u/'+$rootScope.shortname);
+      latest[i].sharingVk = 'http://vk.com/share.php?url='+encodeURIComponent('http://achivster.com/#/u/'+$rootScope.shortname)+'&title=Я заработал(а) достижение&description="'+latest[i].name+'" за '+latest[i].points+' очков.&image=http://achivster.com'+latest[i].icon;
     }
 
       $http.post(path.api_prefix + '/dashboard/service_list', {shortname: $routeParams.shortname}).success(function(services){
@@ -230,6 +233,15 @@ function DashboardController ($scope, $rootScope, $routeParams, $http) {
     $scope.dashboard_sorting_elem_icon = 'choosed';
   }
 
+  $scope.showAchievementDescription = function(achiv) {
+    $scope.showDescription = true;
+    $scope.achiv = achiv;
+  };
+
+  $scope.closeAchievementDescription = function() {
+    $scope.showDescription = false;
+  };
+
 };
 
 function DashboardServiceController ($scope, $rootScope, $routeParams, $http) {
@@ -252,10 +264,9 @@ function DashboardServiceController ($scope, $rootScope, $routeParams, $http) {
         data.achievements[i].color = data.info.color;
       }
 
-      data.achievements[i].sharingTwitter = 'http://twitter.com/intent/tweet?text='+encodeURIComponent('Я заработал(а) достижение "'+data.achievements[i].name+'"" за '+data.achievements[i].points+' очков. http://achivster.com/#/u/'+$rootScope.shortname+' #achivster');
+      data.achievements[i].sharingTwitter = 'http://twitter.com/intent/tweet?text='+encodeURIComponent('Я заработал(а) достижение "'+data.achievements[i].name+'" за '+data.achievements[i].points+' очков. http://achivster.com/#/u/'+$rootScope.shortname+' #achivster');
       data.achievements[i].sharingFacebook = 'https://www.facebook.com/dialog/feed?app_id=258024554279925&link=https://developers.facebook.com/docs/reference/dialogs/&picture=http://achivster.com'+data.achievements[i].icon+'&name='+encodeURIComponent('Я заработал(а) достижение!')+'&caption=http://achivster.com/&description="'+encodeURIComponent(data.achievements[i].name + '" за '+data.achievements[i].points+' очков. #achivster')+'&redirect_uri='+encodeURIComponent('http://achivster.com/#/u/'+$rootScope.shortname);
-
-
+      data.achievements[i].sharingVk = 'http://vk.com/share.php?url='+encodeURIComponent('http://achivster.com/#/u/'+$rootScope.shortname)+'&title=Я заработал(а) достижение&description="'+data.achievements[i].name+'" за '+data.achievements[i].points+' очков.&image=http://achivster.com'+data.achievements[i].icon;
     }
     
     $scope.achievements = data.achievements;
@@ -265,17 +276,12 @@ function DashboardServiceController ($scope, $rootScope, $routeParams, $http) {
   $scope.showAchievementDescription = function(achiv) {
     $scope.showDescription = true;
     $scope.achiv = achiv;
-    console.log($scope.hideSharing);
   };
 
   $scope.closeAchievementDescription = function() {
     $scope.showDescription = false;
   };
 };
-
-function DashboardAchievementDescriptionController($scope) {
-
-}
 
 function FeedController ($scope, $rootScope, $routeParams, $http) {
   $http.post(path.api_prefix + '/feed').success(function(topics){

@@ -66,7 +66,7 @@
 
 <div id="content_achievements" ng-hide="latest.error">
   
-  <div class="achievements_tile" ng-class="{'achievements_tile_clicked': !clicked, 'achievements_tile_clicked': clicked}" ng-repeat="achiv in latest" style="border: 3px solid {{achiv.color}}" fast-click="clicked = !clicked">
+  <div class="achievements_tile" ng-repeat="achiv in latest" style="border: 3px solid {{achiv.color}}" ng-click="showAchievementDescription(achiv)">
     <div class="achievements_tile_flag" style="background: {{achiv.color}}"><img src="http://achivster.com{{achiv.icon}}" class="service_icon_achievements"></div>
     <div class="achievements_tile_flag_right" style="border-left: 25px solid {{achiv.color}}"></div>
     <div class="achievements_tile_name">{{achiv.name}}</div>
@@ -75,20 +75,8 @@
       <div class="achievements_tile_points">{{achiv.points}}</div>
       <div class="achievements_tile_date">{{achiv.time}}</div>
     </div>
-    <div class="achievements_tile_description">
-      {{achiv.description}}
-      <div class="achievements_tile_sharing" ng-hide="hideSharing() == true">
-
-        <a target="_blank" href="{{achiv.sharingTwitter}}" title="Рассказать друзьям">
-          <img src="images/s/sharing/twitter.svg" class="achievements_tile_sharing_icon">
-        </a>
-        
-        <a target="_blank" href="{{achiv.sharingFacebook}}" title="Рассказать друзьям">
-          <img src="images/s/sharing/facebook.svg" class="achievements_tile_sharing_icon">
-        </a>
-        
-      </div>
-    </div>
   </div>
 
 </div>
+
+<achievement-description ng-show="showDescription" achiv-data="{{achiv}}"></achievement-description>

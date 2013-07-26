@@ -31,24 +31,6 @@
       <div class="achievements_tile_points">{{achievement.points}}</div>
       <div class="achievements_tile_date">{{achievement.time}}</div>
     </div>
-    <div class="achievements_tile_description">
-      {{achievement.description}}
-
-      <div class="achievements_tile_sharing" ng-hide="hideSharing">
-        <!--<img src="images/s/sharing/vk.svg" class="achievements_tile_sharing_icon">-->
-        
-        <a target="_blank" href="{{achievement.sharingTwitter}}" title="Рассказать друзьям">
-          <img src="images/s/sharing/twitter.svg" class="achievements_tile_sharing_icon">
-        </a>
-        
-        <a target="_blank" href="{{achievement.sharingFacebook}}" title="Рассказать друзьям">
-          <img src="images/s/sharing/facebook.svg" class="achievements_tile_sharing_icon">
-        </a>
-        
-        </div>
-    </div>
-  </div>
-
 </div>
 
 <achievement-description ng-show="showDescription"></achievement-description>
