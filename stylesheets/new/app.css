@@ -142,6 +142,13 @@ body {
   margin-right: 30px;
   margin-left: 15px;
 }
+.menu_elem_logout {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.menu_elem_logout a:hover {
+  border-bottom: 1px dashed #999999;
+}
 #menu_exit {
   color: #999;
 }

@@ -58,11 +58,8 @@
           <div class="menu_elem"><img src="images/messages.svg">Сообщения</div>
         </a>
 
-        <a href="/logout">
-          <div class="menu_elem"><img src="images/logout.svg">Выйти</div>
-        </a>
+    </div>
 
-    </div> 
     <!-- End Menu Place-->
 
     <div class="navbar navbar-fixed-bottom">
@@ -75,6 +72,13 @@
           <span class="menu_footer_block"><a href="/">Разработчикам</a></span>
         </div>-->
         <div class="menu_footer">
+          <center>
+            <div class="menu_elem_logout">
+              <a href="/logout">
+                Выход
+              </a>
+            </div>
+            </center>
           <center style="margin-bottom: 10px;">
             <span class="menu_footer_block"><a href="https://vk.com/achivster" target="_blank">ВКонтакте</a></span>
             <span class="menu_footer_block"><a href="https://twitter.com/achivster_ru" target="_blank">Twitter</a></span>
@@ -114,6 +118,32 @@
     })();
 
   </script>
+
+  <script type="text/javascript">
+  (function (d, w, c) {
+      (w[c] = w[c] || []).push(function() {
+          try {
+              w.yaCounter22688701 = new Ya.Metrika({id:22688701,
+                      webvisor:true,
+                      clickmap:true,
+                      trackLinks:true,
+                      accurateTrackBounce:true});
+          } catch(e) { }
+      });
+
+      var n = d.getElementsByTagName("script")[0],
+          s = d.createElement("script"),
+          f = function () { n.parentNode.insertBefore(s, n); };
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+      if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+      } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+  </script>
+  <noscript><div><img src="//mc.yandex.ru/watch/22688701" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
 </body>
 </html>
