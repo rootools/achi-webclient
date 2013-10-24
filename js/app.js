@@ -67,6 +67,7 @@ function AppController ($scope, $rootScope, $http) {
 };
 
 function ProfileController ($scope, $rootScope, $routeParams, $http, $timeout) {
+  yaCounter22688701.hit('http://achivster.com/#/profile', 'Профиль', null);
   $scope.form_error_message = '';
 
   $http.post(path.api_prefix + '/profile').success(function(profile){
