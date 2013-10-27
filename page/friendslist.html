@@ -2,7 +2,7 @@
   <h1>Друзья</h1>
   <div id="title_menu">
     
-    <!--<a href="#/friends/list">
+    <a href="#/friends/list">
       <div class="title_menu_elem {{second_menu_chooser_list}}">Мои друзья</div>
     </a>
     
@@ -10,18 +10,15 @@
       <div class="title_menu_elem {{second_menu_chooser_find}}">Поиск</div>
     </a>
     
-    <a href="#/friends/invite">
+    <!--<a href="#/friends/invite">
       <div class="title_menu_elem {{second_menu_chooser_invite}}">Пригласить</div>
     </a>-->
   
   </div>
 </div>
 
-
-
 <div id="content_friendslist">
- 
- 
+
   <div class="friendslist_tile" ng-repeat="friend in friends">
     <a href="/#/u/{{friend.shortname}}" style="opacity: {{friend.opacity}}">   
       <img src="http://achivster.com{{friend.photo}}" class="friendslist_tile_image">
@@ -29,6 +26,16 @@
       <div class="friendslist_name">{{friend.name}}</div>
     </a>
     <div class="friendslist_remove" title="{{friend.remove_message}}" ng-click="Friendship(friend, counter = counter + 1)"><img src="images/trash.svg" class="friendslist_remove_icon" ng-show="friend.display() == true"><img src="images/restore.svg" class="friendslist_remove_icon" ng-hide="friend.display() == true"></div>
+  </div>
+  
+  <div class="friendslist_tile" ng-repeat="friend in not_friends">
+    <a href="/#/u/{{friend.shortname}}" style="opacity: {{friend.opacity}}">
+      <img src="http://achivster.com{{friend.photo}}" class="friendslist_tile_image">
+      <div class="friendslist_name">{{friend.name}}</div>
+    </a>
+    <div class="friendslist_remove" title="{{friend.remove_message}}" ng-click="Friendship(friend, 'add')">
+      <img src="images/plus.svg" class="friendslist_remove_icon" ng-show="friend.display">
+    </div>
   </div>
   
 </div>

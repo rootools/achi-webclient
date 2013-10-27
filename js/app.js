@@ -67,7 +67,6 @@ function AppController ($scope, $rootScope, $http) {
 };
 
 function ProfileController ($scope, $rootScope, $routeParams, $http, $timeout) {
-  yaCounter22688701.hit('http://achivster.com/#/profile', 'Профиль', null);
   $scope.form_error_message = '';
 
   $http.post(path.api_prefix + '/profile').success(function(profile){
@@ -333,6 +332,16 @@ function FriendsController ($scope, $rootScope, $routeParams, $http, $location) 
     $scope.second_menu_chooser_list = '';
     $scope.second_menu_chooser_find = 'choosed';
     $scope.second_menu_chooser_invite = '';
+    $http.post(path.api_prefix + '/friends/social/find').success(function(friends_list){
+      for(var i in friends_list) {
+        friends_list[i].display = true;
+        if(friends_list[i].name.length === 0) {
+          friends_list[i].name = 'anonymous';
+        }
+      }
+      $scope.not_friends = friends_list;
+    });
+    
   } else if($routeParams.select === 'invite') {
     $scope.second_menu_chooser_list = '';
     $scope.second_menu_chooser_find = '';
@@ -341,21 +350,28 @@ function FriendsController ($scope, $rootScope, $routeParams, $http, $location) 
 
   $scope.Friendship = function(friend, state) {
     var uid = friend.uid;
+    console.log(uid);
     
     if (state % 2 === 0) { var action = 'restore' }
+    else if(state === 'add') {var action = 'add'}
     else { var action = 'remove'; }
 
     if(action === 'remove') {
       $http.post(path.api_prefix + '/friends/remove', {friend_uid: uid}).success(function(){
         friend.opacity = 0.2;
-        friend.display = function (){return false;}
+        friend.display = function (){return false;};
         friend.remove_message = 'Восстановить дружбу';
       });
     } else if(action === 'restore') {
       $http.post(path.api_prefix + '/friends/restore', {friend_uid: uid}).success(function(){
         friend.opacity = 1;
-        friend.display = function (){return true;}
+        friend.display = function (){return true;};
         friend.remove_message = 'Удалить из друзей';
+      });
+    } else if(action === 'add') {
+      $http.post(path.api_prefix + '/friends/add', {uid: uid}).success(function(message){
+        friend.opacity = 0.2;
+        friend.remove_message = message.message;
       });
     }
   
