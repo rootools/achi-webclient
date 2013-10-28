@@ -50,18 +50,18 @@
     
     <div class="service_tile_flag">
       <div class="service_tile_canvas" style="background: {{service.color}}">
-        <div class="service_tile_connection">Подключить</div>
+        <div class="service_tile_connection"><img src="http://achivster.com/images/plus.svg"></div>
         <img src="{{service.icon}}" class="service_icon_service"></div>
       <div class="service_tile_flag_bottom"></div>
     </div>
     
     <div class="service_tile_name">{{service.name}}</div>
-    <div class="service_tile_points"><img src="images/star.svg" class="service_tile_points_star">{{service.earnedPoints}}</div>
-    <div class="service_tile_holder"></div>
     <div class="service_tile_earnings">{{service.earned}}/{{service.full}}</div>
+    <div class="service_tile_points"><img src="images/star.svg" class="service_tile_points_star">{{service.earnedPoints}}</div>
   </a>
   </div>
-        
+
+
 </div>
 
 <div id="content_achievements" ng-hide="latest.error">

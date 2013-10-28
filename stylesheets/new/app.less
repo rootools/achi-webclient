@@ -214,14 +214,14 @@ body {
 
 .service_tile {
   position: relative;
-  width: 31%;
+  width: 100px;
   cursor: pointer;
   margin-right: 2%;
   margin-bottom: 2%;
   float: left;
+  margin-right: 20px;
 
   .service_tile_flag {
-    float: left;
     margin-right: 10px;
     .service_tile_canvas {
       width: 100px;
@@ -239,7 +239,12 @@ body {
     }
   }
 
-  .service_tile_name, .service_tile_points, .service_tile_holder, .service_tile_earnings {
+  .service_tile_name {
+    text-align: center;
+    width: 100%;
+  }
+
+  .service_tile_name, .service_tile_points, .service_tile_earnings {
     height: 25px;
   }
 
@@ -248,7 +253,16 @@ body {
   }
 
   .service_tile_points, .service_tile_earnings {
+    position: relative;
     font-size: 11pt;
+  }
+
+  .service_tile_points {
+    float: right;
+  }
+
+  .service_tile_earnings {
+    float: left;
   }
 
   .service_tile_points {
@@ -292,17 +306,16 @@ body {
     display: none;
   }
   .service_tile_connection {
+    width: 50px;
     position: absolute;
     display: block;
-    text-align: center;
-    font-size: 0.875em;
-    color: @main-color;
+    /*text-align: center;*/
     z-index: 2;
-    top: 30px;
+    top: 15px;
     left:0;
     right:0;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: 24px;
+    margin-right: 25px;
   }
   .service_icon_service {
     position: relative;

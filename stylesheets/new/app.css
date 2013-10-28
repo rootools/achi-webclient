@@ -268,14 +268,14 @@ body {
 }
 .service_tile {
   position: relative;
-  width: 31%;
+  width: 100px;
   cursor: pointer;
   margin-right: 2%;
   margin-bottom: 2%;
   float: left;
+  margin-right: 20px;
 }
 .service_tile .service_tile_flag {
-  float: left;
   margin-right: 10px;
 }
 .service_tile .service_tile_flag .service_tile_canvas {
@@ -292,9 +292,12 @@ body {
   border-right: 50px solid transparent;
   border-bottom: 25px solid white;
 }
+.service_tile .service_tile_name {
+  text-align: center;
+  width: 100%;
+}
 .service_tile .service_tile_name,
 .service_tile .service_tile_points,
-.service_tile .service_tile_holder,
 .service_tile .service_tile_earnings {
   height: 25px;
 }
@@ -304,7 +307,14 @@ body {
 }
 .service_tile .service_tile_points,
 .service_tile .service_tile_earnings {
+  position: relative;
   font-size: 11pt;
+}
+.service_tile .service_tile_points {
+  float: right;
+}
+.service_tile .service_tile_earnings {
+  float: left;
 }
 .service_tile .service_tile_points {
   color: #ff9000;
@@ -351,17 +361,17 @@ body {
 }
 .service_tile_valid_false .service_tile_connection,
 .service_tile_valid_false > div .service_tile_connection {
+  width: 50px;
   position: absolute;
   display: block;
-  text-align: center;
-  font-size: 0.875em;
-  color: #006196;
+  /*text-align: center;*/
+
   z-index: 2;
-  top: 30px;
+  top: 15px;
   left: 0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 24px;
+  margin-right: 25px;
 }
 .service_tile_valid_false .service_icon_service,
 .service_tile_valid_false > div .service_icon_service {
