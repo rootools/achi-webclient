@@ -587,12 +587,12 @@ body {
   left: 120px;
   padding-top: 36px;
   padding-left: 10px;
-  font-size: 20px;
   margin-top: 10px;
   font-size: 0.75em;
   color: #999999;
   width: 350px;
   overflow: hidden;
+  white-space: nowrap;
 }
 .achievements_tile .achievements_tile_description:after {
   content: "";
