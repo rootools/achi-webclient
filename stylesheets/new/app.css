@@ -653,7 +653,9 @@ body {
 }
 .dashboard_sorting {
   height: 26px;
-  border-bottom: 1px solid #999;
+  margin-top: 10px;
+  /*border-bottom: 1px solid #999;*/
+
 }
 .dashboard_sorting span {
   cursor: pointer;
