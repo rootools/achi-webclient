@@ -35,27 +35,27 @@
       <!-- End User Info Place-->
 
     <!-- Menu Place-->
-    <div id="menu">
+    <div id="menu" ng-controller="MenuController">
         
         <a href="#/dashboard">
           <!--<ng-class="{active: slug == 'dashboard'}"> -->
-          <div class="menu_elem"><img src="images/dashboard.svg">Сводка</div>
+          <div class="menu_elem" ng-class="menuHighlight('dashboard');"><img src="images/dashboard.svg">Сводка</div>
         </a>
         
         <a href="#/feed">
-          <div class="menu_elem"><img src="images/feed.svg">Новости</div>
+          <div class="menu_elem" ng-class="menuHighlight('feed');"><img src="images/feed.svg">Новости</div>
         </a>
         
         <a href="#/top/friends">
-          <div class="menu_elem"><img src="images/top.svg">Рейтинги</div>
+          <div class="menu_elem" ng-class="menuHighlight('top');"><img src="images/top.svg">Рейтинги</div>
         </a>
         
         <a href="#/friends"> 
-          <div class="menu_elem"><img src="images/friends.svg">Друзья</div>
+          <div class="menu_elem" ng-class="menuHighlight('friends');"><img src="images/friends.svg">Друзья</div>
         </a>
         
         <a href="#/messages">
-          <div class="menu_elem"><img src="images/messages.svg">Сообщения</div>
+          <div class="menu_elem" ng-class="menuHighlight('messages');"><img src="images/messages.svg">Сообщения</div>
         </a>
 
     </div>

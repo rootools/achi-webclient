@@ -423,3 +423,11 @@ function UserInfoUpdateController($scope, $rootScope, $routeParams, $http, $loca
     $scope.points = points;
   });
 };
+
+function MenuController($scope, $rootScope, $routeParams, $http, $location) {
+  $scope.menuHighlight = function(url) {
+    if ($location.path().split('/')[1] == url) {
+      return 'selected';
+    }
+  }
+}
