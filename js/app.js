@@ -385,15 +385,15 @@ function FriendsController ($scope, $rootScope, $routeParams, $http, $location) 
   };
   
   $scope.acceptFriendship = function(uid) {
-    console.log(uid);
-    /*$http.post(path.api_prefix + '/friends/accept', {owner_uid: uid}).success(function(){
-    });*/
+    $http.post(path.api_prefix + '/friends/accept', {owner_uid: uid}).success(function(){
+      location.reload();
+    });
   };
 
   $scope.rejectFriendship = function(uid) {
-    console.log(uid);
-    /*$http.post(path.api_prefix + '/friends/reject', {owner_uid: uid}).success(function(){
-    });*/
+    $http.post(path.api_prefix + '/friends/reject', {owner_uid: uid}).success(function(){
+      location.reload();
+    });
   };
 
 }
