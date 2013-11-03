@@ -257,6 +257,12 @@ body {
   color: #ff0000;
   margin-top: 30px;
 }
+.content_children_title {
+  color: #006196;
+  width: 100%;
+  font-size: 1.2em;
+  margin-bottom: 14px;
+}
 .service_icon_service,
 .service_icon_achievements {
   height: 48px;
@@ -778,6 +784,13 @@ body {
 }
 .friendslist_tile:hover .friendslist_remove {
   display: block;
+}
+#friendslist_request_list {
+  position: relative;
+  float: left;
+  border-bottom: 1px solid #999999;
+  clear: both;
+  width: 100%;
 }
 #title_menu {
   position: relative;
