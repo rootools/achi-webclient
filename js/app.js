@@ -426,7 +426,10 @@ function UserInfoUpdateController($scope, $rootScope, $routeParams, $http, $loca
 
 function MenuController($scope, $rootScope, $routeParams, $http, $location) {
   $scope.menuHighlight = function(url) {
+    console.log(url);
     if ($location.path().split('/')[1] == url) {
+      return 'selected';
+    } else if($location.path().split('/')[1] == 'u' && url === 'dashboard') {
       return 'selected';
     }
   }
