@@ -384,14 +384,16 @@ function FriendsController ($scope, $rootScope, $routeParams, $http, $location) 
   
   };
   
-  $scope.acceptFriendship = function(message) {
-    $http.post(path.api_prefix + '/friends/accept', {owner_uid: message.uid}).success(function(){
-    });
+  $scope.acceptFriendship = function(uid) {
+    console.log(uid);
+    /*$http.post(path.api_prefix + '/friends/accept', {owner_uid: uid}).success(function(){
+    });*/
   };
 
-  $scope.rejectFriendship = function(message) {
-    $http.post(path.api_prefix + '/friends/reject', {owner_uid: message.uid}).success(function(){
-    });
+  $scope.rejectFriendship = function(uid) {
+    console.log(uid);
+    /*$http.post(path.api_prefix + '/friends/reject', {owner_uid: uid}).success(function(){
+    });*/
   };
 
 }

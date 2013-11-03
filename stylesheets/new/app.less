@@ -695,7 +695,7 @@ body {
     opacity: 0.9;
   }
 
-  .friendslist_points, .friendslist_remove {
+  .friendslist_points, .friendslist_remove, .friendslist_remove_2 {
     font-size: 14px;
     background-color: @gold-color;
     color: white;
@@ -718,13 +718,24 @@ body {
     width: 15px;
     z-index: 23;
   }
+  .friendslist_remove_2 {
+    display: none;
+    background-color: @main-color;
+    left: 38px;
+    width: 15px;
+    z-index: 23;
+  }
   
   a {
     border-bottom: 0px;
   }
 }
 
-.friendslist_tile:hover .friendslist_remove {
+.friendslist_tile:hover .friendslist_remove{
+  display: block;
+}
+
+.friendslist_tile:hover .friendslist_remove_2{
   display: block;
 }
 
@@ -734,6 +745,7 @@ body {
   border-bottom: 1px solid @tip-color;
   clear: both;
   width: 100%;
+  margin-bottom: 10px;
 }
 
 #title_menu {

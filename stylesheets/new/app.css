@@ -753,7 +753,8 @@ body {
   opacity: 0.9;
 }
 .friendslist_tile .friendslist_points,
-.friendslist_tile .friendslist_remove {
+.friendslist_tile .friendslist_remove,
+.friendslist_tile .friendslist_remove_2 {
   font-size: 14px;
   background-color: #ff9000;
   color: white;
@@ -765,8 +766,10 @@ body {
 }
 .friendslist_tile .friendslist_points .friendslist_points_star,
 .friendslist_tile .friendslist_remove .friendslist_points_star,
+.friendslist_tile .friendslist_remove_2 .friendslist_points_star,
 .friendslist_tile .friendslist_points .friendslist_remove_icon,
-.friendslist_tile .friendslist_remove .friendslist_remove_icon {
+.friendslist_tile .friendslist_remove .friendslist_remove_icon,
+.friendslist_tile .friendslist_remove_2 .friendslist_remove_icon {
   width: 14px;
   height: 14px;
   margin-bottom: 2px;
@@ -779,10 +782,20 @@ body {
   width: 15px;
   z-index: 23;
 }
+.friendslist_tile .friendslist_remove_2 {
+  display: none;
+  background-color: #006196;
+  left: 38px;
+  width: 15px;
+  z-index: 23;
+}
 .friendslist_tile a {
   border-bottom: 0px;
 }
 .friendslist_tile:hover .friendslist_remove {
+  display: block;
+}
+.friendslist_tile:hover .friendslist_remove_2 {
   display: block;
 }
 #friendslist_request_list {
@@ -791,6 +804,7 @@ body {
   border-bottom: 1px solid #999999;
   clear: both;
   width: 100%;
+  margin-bottom: 10px;
 }
 #title_menu {
   position: relative;
