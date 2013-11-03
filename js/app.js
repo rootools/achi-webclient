@@ -327,6 +327,13 @@ function FriendsController ($scope, $rootScope, $routeParams, $http, $location) 
       $scope.second_menu_chooser_find = '';
       $scope.second_menu_chooser_invite = '';
     });
+    
+    $http.post(path.api_prefix + '/friends/requests/get').success(function(friends_resuests_list){
+      if(friends_resuests_list.length > 0) {
+        $scope.show_requests = true;
+        $scope.friends_resuests_list = friends_resuests_list;
+      }
+    });
 
   } else if($routeParams.select === 'find') {
     $scope.second_menu_chooser_list = '';
@@ -376,8 +383,18 @@ function FriendsController ($scope, $rootScope, $routeParams, $http, $location) 
     }
   
   };
+  
+  $scope.acceptFriendship = function(message) {
+    $http.post(path.api_prefix + '/friends/accept', {owner_uid: message.uid}).success(function(){
+    });
+  };
 
-};
+  $scope.rejectFriendship = function(message) {
+    $http.post(path.api_prefix + '/friends/reject', {owner_uid: message.uid}).success(function(){
+    });
+  };
+
+}
 
 function MessagesController ($scope, $rootScope, $routeParams, $http) {
   $http.post(path.api_prefix + '/messages/get').success(function(messages){

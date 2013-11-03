@@ -19,22 +19,23 @@
 
 <div id="content_friendslist">
 
-  <div id="friendslist_request_list">
+  <div id="friendslist_request_list" ng-show="show_requests">
     <div class="content_children_title">Запросы добавления в друзья</div>
-    <div class="friendslist_tile">
+    <div class="friendslist_tile" ng-repeat="friend in friends_resuests_list">
       <a href="/#/u/{{friend.shortname}}" style="opacity: {{friend.opacity}}">
         <img src="http://achivster.com{{friend.photo}}" class="friendslist_tile_image">
-        <div class="friendslist_name">zaza</div>
+        <div class="friendslist_name">{{friend.name}}</div>
       </a>
+      <div class="friendslist_remove" title="{{friend.remove_message}}" ng-click="Friendship(friend, 'add')">
+        <img src="images/plus.svg" class="friendslist_remove_icon" ng-show="friend.display">
+      </div>
+      
       <div class="friendslist_remove" title="{{friend.remove_message}}" ng-click="Friendship(friend, 'add')">
         <img src="images/plus.svg" class="friendslist_remove_icon" ng-show="friend.display">
       </div>
     </div>
 
   </div>
-
-
-
 
   <div class="friendslist_tile" ng-repeat="friend in friends">
     <a href="/#/u/{{friend.shortname}}" style="opacity: {{friend.opacity}}">   
