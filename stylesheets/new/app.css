@@ -27,6 +27,9 @@ a:visited {
   color: #96bbcc;
   border-bottom: 1px dashed #96bbcc;
 }
+a:focus {
+  outline: 0;
+}
 input[type="text"],
 input[type="password"],
 input[type="number"] {
@@ -134,7 +137,6 @@ body {
   color: #006196;
   border-bottom: 1px solid #999999;
   cursor: pointer;
-  outline: 0;
 }
 .menu_elem img {
   width: 32px;
@@ -192,7 +194,6 @@ body {
   height: 80px;
   width: 100%;
   border-bottom: 1px solid #999999;
-  outline: 0;
 }
 #user_info #user_info_left {
   height: 80px;
