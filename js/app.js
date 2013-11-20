@@ -18,6 +18,7 @@ Achivster.config(function ($routeProvider, $httpProvider) {
     .when('/friends', {templateUrl: 'page/friendslist.html', controller : 'FriendsController'})
     .when('/friends/:select', {templateUrl: 'page/friendslist.html', controller : 'FriendsController'})
     .when('/messages', {templateUrl: 'page/messages.html', controller : 'MessagesController'})
+    .when('/promo', {templateUrl: 'page/landing1.html'})
     .when('/login')
     .when('/logout')
     .otherwise({redirectTo: '/dashboard'});
