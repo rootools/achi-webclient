@@ -202,13 +202,12 @@ body {
 }
 #user_info #user_info_points {
   margin-top: 4px;
-  font-size: 12px;
+  font-size: 1.2em;
   font-weight: bold;
   color: #ff9000;
 }
 #user_info #user_info_points #user_info_points_star {
-  height: 12px;
-  width: 12px;
+  width: 12%;
   margin-bottom: 4px;
   margin-right: 2px;
 }
