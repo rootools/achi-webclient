@@ -1026,3 +1026,9 @@ body {
   font-size: 0.8em;
   color: green;
 }
+#payment_title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  color: #006196;
+}
