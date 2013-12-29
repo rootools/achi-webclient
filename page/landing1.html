@@ -2,16 +2,14 @@
   <style>
     #landing1_click {
       position: absolute;
-      top: 56%;
+      top: 54%;
       left: 30%;
-      border: 3px solid red;
       width: 40%;
       height: 9%;
       outline: 0;
     }
   </style>
-  <a href="http://ya.ru">
-    <div id="landing1_click"></div>
-  </a>
+  <div id="landing1_click" ng-click="show_payment_form();"></div>
   <img src="/images/landing1.jpg" width=100%>
+  <specail-buy-page ng-show="vis_payment_form" achiv-data="{{achiv}}"></specail-buy-page>
 </div>

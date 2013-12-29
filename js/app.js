@@ -18,7 +18,9 @@ Achivster.config(function ($routeProvider, $httpProvider) {
     .when('/friends', {templateUrl: 'page/friendslist.html', controller : 'FriendsController'})
     .when('/friends/:select', {templateUrl: 'page/friendslist.html', controller : 'FriendsController'})
     .when('/messages', {templateUrl: 'page/messages.html', controller : 'MessagesController'})
-    .when('/promo', {templateUrl: 'page/landing1.html'})
+    .when('/special', {templateUrl: 'page/landing1.html', controller : 'SpecialController'})
+    .when('/payment/true', {templateUrl: 'page/payment_true.html'})
+    .when('/payment/false', {templateUrl: 'page/payment_false.html'})
     .when('/login')
     .when('/logout')
     .otherwise({redirectTo: '/dashboard'});
@@ -60,6 +62,15 @@ Achivster.directive('achievementDescription', function(){
     replace: true,
     transclude: true,
     templateUrl: 'page/dashboard_achievement_description.html'
+  }
+});
+
+Achivster.directive('specailBuyPage', function(){
+  return {
+    restrict: 'E',
+    replace: true,
+    transclude: true,
+    templateUrl: 'page/special_buy_page.html'
   }
 });
 
@@ -452,4 +463,18 @@ function MenuController($scope, $rootScope, $routeParams, $http, $location) {
       return 'selected';
     }
   }
+}
+
+function SpecialController($scope, $rootScope, $routeParams, $http, $location) {
+  
+  $scope.vis_payment_form = false;
+  
+  $scope.show_payment_form = function() {
+    $scope.vis_payment_form = true;
+  };
+  
+  $scope.closePaymentForm = function() {
+    $scope.vis_payment_form = false;
+  }
+
 }
