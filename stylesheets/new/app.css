@@ -1032,3 +1032,19 @@ body {
   font-size: 1.2em;
   color: #006196;
 }
+#payment_description {
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+#payment_note {
+  color: #999999;
+  font-size: 0.8em;
+  margin-bottom: 10px;
+}
+#payment_submit {
+  width: 180px;
+  height: 45px;
+  background-color: #006196;
+  color: white;
+  font-size: 1.2em;
+}

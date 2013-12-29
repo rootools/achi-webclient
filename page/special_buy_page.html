@@ -1,11 +1,14 @@
 <div>
 	<div class="dashboard_achievement_description_shadow" ng-click="closePaymentForm()"></div>
 	<div class="dashboard_achievement_description">
-    <div id="payment_title">Параметры заказа</div>
+    <div id="payment_title">Осталось совсем чуть-чуть...</div>
+    <div id="payment_description">Введи ниже адрес доставки и ты получишь свой значек. Ожидай извещения с почты =)</div>
     <form action="/payment/special1">
       <input type="text" placeholder="Адрес доставки"></input>
-      <div id="payment_description">*Стоимость доставка в любые регионы России - 150 рублей.</div>
-      <input type="submit" value="Заказать">
+      <div id="payment_note">Стоимость доставки по России - 150 рублей.</div>
+      <center>
+      	<input type="submit" value="Заказать" id="payment_submit">
+    	</center>
     </form>
 	</div>
 </div>
